@@ -1,0 +1,257 @@
+# Entity: restroom
+
+main: kit: entity: restroom: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "accessible"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "changing_table"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "city"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "comment"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "country"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "created_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "direction"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "distance"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "downvote"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "latitude"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "longitude"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "state"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "street"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "unisex"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "updated_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "upvote"
+      req: false
+      type: "`$INTEGER`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "restroom"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "ada"
+                orig: "ada"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: 40.7128
+                kind: "query"
+                name: "lat"
+                orig: "lat"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                example: -74.006
+                kind: "query"
+                name: "lng"
+                orig: "lng"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 10
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "unisex"
+                orig: "unisex"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/v1/restrooms"
+          parts: [
+            "v1"
+            "restrooms"
+          ]
+          select: {
+            exist: [
+              "ada"
+              "lat"
+              "lng"
+              "page"
+              "per_page"
+              "unisex"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "lat"
+                orig: "lat"
+                reqd: true
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "lng"
+                orig: "lng"
+                reqd: true
+                type: "`$NUMBER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/v1/restrooms/by_location"
+          parts: [
+            "v1"
+            "restrooms"
+            "by_location"
+          ]
+          select: {
+            "$action": "by_location"
+            exist: [
+              "lat"
+              "lng"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: "New York, NY"
+                kind: "query"
+                name: "query"
+                orig: "query"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/v1/restrooms/search"
+          parts: [
+            "v1"
+            "restrooms"
+            "search"
+          ]
+          select: {
+            "$action": "search"
+            exist: [
+              "query"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

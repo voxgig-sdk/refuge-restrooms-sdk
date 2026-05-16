@@ -1,0 +1,22 @@
+# BasicRestroomFlow
+
+main: kit: flow: BasicRestroomFlow:
+{
+  entity: "restroom",
+  kind: "basic",
+  name: "BasicRestroomFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "restroom_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRestroomFlow"
+}

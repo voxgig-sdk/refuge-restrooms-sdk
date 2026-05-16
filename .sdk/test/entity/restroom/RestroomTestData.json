@@ -1,0 +1,89 @@
+{
+  "existing": {
+    "restroom": {
+      "RESTROOM00": {
+        "accessible": true,
+        "changing_table": false,
+        "city": "sb6",
+        "comment": "sb7",
+        "country": "sb8",
+        "created_at": "sb9",
+        "direction": "sba",
+        "distance": 187,
+        "downvote": "sbc",
+        "id": "RESTROOM00",
+        "latitude": 190,
+        "longitude": 191,
+        "name": "sc0",
+        "state": "sc1",
+        "street": "sc2",
+        "unisex": false,
+        "updated_at": "sc4",
+        "upvote": "sc5"
+      },
+      "RESTROOM01": {
+        "accessible": true,
+        "changing_table": false,
+        "city": "s16a",
+        "comment": "s16b",
+        "country": "s16c",
+        "created_at": "s16d",
+        "direction": "s16e",
+        "distance": 367,
+        "downvote": "s170",
+        "id": "RESTROOM01",
+        "latitude": 370,
+        "longitude": 371,
+        "name": "s174",
+        "state": "s175",
+        "street": "s176",
+        "unisex": false,
+        "updated_at": "s178",
+        "upvote": "s179"
+      },
+      "RESTROOM02": {
+        "accessible": true,
+        "changing_table": false,
+        "city": "s21e",
+        "comment": "s21f",
+        "country": "s220",
+        "created_at": "s221",
+        "direction": "s222",
+        "distance": 547,
+        "downvote": "s224",
+        "id": "RESTROOM02",
+        "latitude": 550,
+        "longitude": 551,
+        "name": "s228",
+        "state": "s229",
+        "street": "s22a",
+        "unisex": false,
+        "updated_at": "s22c",
+        "upvote": "s22d"
+      }
+    }
+  },
+  "new": {
+    "restroom": {
+      "restroom_ref01": {
+        "accessible": true,
+        "changing_table": false,
+        "city": "s2d2",
+        "comment": "s2d3",
+        "country": "s2d4",
+        "created_at": "s2d5",
+        "direction": "s2d6",
+        "distance": 727,
+        "downvote": "s2d8",
+        "latitude": 730,
+        "longitude": 731,
+        "name": "s2dc",
+        "state": "s2dd",
+        "street": "s2de",
+        "unisex": false,
+        "updated_at": "s2e0",
+        "upvote": "s2e1"
+      }
+    }
+  }
+}

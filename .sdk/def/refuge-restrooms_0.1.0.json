@@ -1,0 +1,348 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Refuge Restrooms API",
+    "description": "Provides access to gender-neutral restroom locations and information. Users can search for restrooms by address or current location.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Refuge Restrooms",
+      "url": "https://www.refugerestrooms.org/"
+    },
+    "license": {
+      "name": "Open Source",
+      "url": "https://github.com/RefugeRestrooms/refugerestrooms"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.refugerestrooms.org/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/v1/restrooms": {
+      "get": {
+        "summary": "Search for restrooms",
+        "description": "Search for gender-neutral restrooms by location. Can search by address or current coordinates.",
+        "operationId": "searchRestrooms",
+        "tags": [
+          "Restrooms"
+        ],
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "Latitude coordinate for location-based search",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "example": 40.7128
+            }
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "description": "Longitude coordinate for location-based search",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "example": -74.006
+            }
+          },
+          {
+            "name": "ada",
+            "in": "query",
+            "description": "Filter for ADA accessible restrooms only",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "unisex",
+            "in": "query",
+            "description": "Filter for unisex restrooms only",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Number of results per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with list of restrooms",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Restroom"
+                  }
+                },
+                "example": [
+                  {
+                    "id": 1234,
+                    "name": "Public Library Downtown",
+                    "street": "123 Main Street",
+                    "city": "New York",
+                    "state": "NY",
+                    "country": "US",
+                    "accessible": true,
+                    "unisex": true,
+                    "changing_table": true,
+                    "directions": "On the first floor near the entrance",
+                    "comment": "Clean and well-maintained",
+                    "latitude": 40.7128,
+                    "longitude": -74.006,
+                    "created_at": "2023-01-15T10:30:00Z",
+                    "updated_at": "2023-06-20T14:45:00Z",
+                    "downvote": 0,
+                    "upvote": 15,
+                    "distance": 0.5
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/restrooms/by_location": {
+      "get": {
+        "summary": "Search restrooms by location",
+        "description": "Search for restrooms near a specific latitude and longitude",
+        "operationId": "getRestroomsByLocation",
+        "tags": [
+          "Restrooms"
+        ],
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "Latitude coordinate",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "description": "Longitude coordinate",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of nearby restrooms",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Restroom"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/restrooms/search": {
+      "get": {
+        "summary": "Search restrooms by address",
+        "description": "Search for restrooms by providing a text address or location name",
+        "operationId": "searchRestroomsByAddress",
+        "tags": [
+          "Restrooms"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Address or location query string",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "New York, NY"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of restrooms matching the search",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Restroom"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Restroom": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the restroom"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the location or establishment"
+          },
+          "street": {
+            "type": "string",
+            "description": "Street address"
+          },
+          "city": {
+            "type": "string",
+            "description": "City name"
+          },
+          "state": {
+            "type": "string",
+            "description": "State or province"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country code"
+          },
+          "accessible": {
+            "type": "boolean",
+            "description": "Whether the restroom is ADA accessible"
+          },
+          "unisex": {
+            "type": "boolean",
+            "description": "Whether the restroom is unisex/gender-neutral"
+          },
+          "changing_table": {
+            "type": "boolean",
+            "description": "Whether a changing table is available"
+          },
+          "directions": {
+            "type": "string",
+            "description": "Directions to find the restroom",
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "description": "Additional comments or notes",
+            "nullable": true
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude coordinate"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude coordinate"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the restroom was added"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the restroom was last updated"
+          },
+          "downvote": {
+            "type": "integer",
+            "description": "Number of downvotes"
+          },
+          "upvote": {
+            "type": "integer",
+            "description": "Number of upvotes"
+          },
+          "distance": {
+            "type": "number",
+            "format": "double",
+            "description": "Distance from search location in miles",
+            "nullable": true
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "message": {
+            "type": "string",
+            "description": "Detailed error description"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Restrooms",
+      "description": "Operations related to finding and accessing gender-neutral restroom information"
+    }
+  ]
+}

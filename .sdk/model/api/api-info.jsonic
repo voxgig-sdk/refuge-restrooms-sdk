@@ -1,0 +1,28 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Refuge Restrooms"
+        url: "https://www.refugerestrooms.org/"
+      }
+      description: "Provides access to gender-neutral restroom locations and information. Users can search for restrooms by address or current location."
+      license: {
+        name: "Open Source"
+        url: "https://github.com/RefugeRestrooms/refugerestrooms"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://www.refugerestrooms.org/api"
+        }
+      ]
+      title: "Refuge Restrooms API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

@@ -1,0 +1,22 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 1
+  metrics: count: path: 3
+  metrics: count: method: 3
+
+  entity: restroom: {
+    path: "/v1/restrooms": {
+      op: list: method: *GET
+    }
+    path: "/v1/restrooms/by_location": {
+      action: "by_location": {}
+      op: list: method: *GET
+    }
+    path: "/v1/restrooms/search": {
+      action: "search": {}
+      op: list: method: *GET
+    }
+  }
+
+}
