@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/refuge-restrooms-sdk"
-	"github.com/voxgig-sdk/refuge-restrooms-sdk/core"
+	sdk "github.com/voxgig-sdk/refuge-restrooms-sdk/go"
+	"github.com/voxgig-sdk/refuge-restrooms-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/refuge-restrooms-sdk/go/utility/struct"
 )
 
 func TestRestroomEntity(t *testing.T) {

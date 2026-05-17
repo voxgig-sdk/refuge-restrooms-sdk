@@ -1,10 +1,10 @@
 package voxgigrefugerestroomssdk
 
 import (
-	"github.com/voxgig-sdk/refuge-restrooms-sdk/core"
-	"github.com/voxgig-sdk/refuge-restrooms-sdk/entity"
-	"github.com/voxgig-sdk/refuge-restrooms-sdk/feature"
-	_ "github.com/voxgig-sdk/refuge-restrooms-sdk/utility"
+	"github.com/voxgig-sdk/refuge-restrooms-sdk/go/core"
+	"github.com/voxgig-sdk/refuge-restrooms-sdk/go/entity"
+	"github.com/voxgig-sdk/refuge-restrooms-sdk/go/feature"
+	_ "github.com/voxgig-sdk/refuge-restrooms-sdk/go/utility"
 )
 
 // Type aliases preserve external API.
