@@ -20,9 +20,6 @@ class RefugeRestroomsConfig
             ],
             "options" => [
                 "base" => "https://www.refugerestrooms.org/api",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

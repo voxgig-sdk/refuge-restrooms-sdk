@@ -21,8 +21,29 @@ main: {
       ]
       title: "Refuge Restrooms API"
       version: "1.0.0"
+      tagline: "Find safe, gender-neutral restrooms by location or address"
+      homepage: "https://www.refugerestrooms.org/"
+      docs_url: "https://www.refugerestrooms.org/api/docs/"
+      license_short: "Open Source (copyleft)"
+      license_md: `- Refuge Restrooms is a community-driven open-source project; the site footer marks the project "copyleft refuge restrooms".
+- Source code is available on GitHub; consult the repository for the canonical licence text before redistributing data.
+- Attribute Refuge Restrooms and link back to refugerestrooms.org when displaying API data.
+- The project is donor-supported (Patreon); heavy users should be considerate with request volume.`
+      about_md: `[Refuge Restrooms](https://www.refugerestrooms.org/) is a community-maintained directory of safe, gender-neutral, and accessible restroom locations. The project was created to help transgender, intersex, and gender-nonconforming people find restrooms they can use without harassment, and is sustained by volunteers and donor funding.
+
+The API exposes the restroom records contributed by the community so third-party apps and maps can query the dataset directly.
+
+What you get from the API:
+
+- A \`restrooms\` collection covering venues that have been submitted and reviewed by the community
+- Search by location (geographic coordinates) or by address, returning nearby matches
+- Standard restroom metadata such as name, street/city/state, directions, accessibility, and unisex flags as recorded by submitters
+
+The API is served from \`https://www.refugerestrooms.org/api\` (v1). No authentication key is documented for read access. CORS is not enabled by default, so browser apps may need a proxy.`
+      entity_desc: {
+        restroom: "A community-submitted restroom record with location, address, and accessibility/unisex metadata; exposed under `/api/v1/restrooms` with search-by-location and search-by-address variants."
+      }
+      auth: false
     }
   }
-}
-
 }
