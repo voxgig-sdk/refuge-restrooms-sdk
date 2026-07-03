@@ -1,7 +1,23 @@
 {
   "name": "@voxgig-sdk/refuge-restrooms",
   "version": "0.0.1",
-  "description": "DESCRIPTION",
+  "description": "Unofficial generated TypeScript SDK for the Refuge Restrooms public API. Not affiliated with or endorsed by the upstream API provider.",
+  "keywords": [
+    "voxgig",
+    "sdk",
+    "generated-sdk",
+    "openapi",
+    "api-client",
+    "refuge-restrooms"
+  ],
+  "homepage": "https://github.com/voxgig-sdk/refuge-restrooms-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voxgig-sdk/refuge-restrooms-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voxgig-sdk/refuge-restrooms-sdk/issues"
+  },
   "main": "dist/RefugeRestroomsSDK.js",
   "type": "commonjs",
   "types": "dist/RefugeRestroomsSDK.d.ts",
@@ -14,7 +30,10 @@
     "clean": "rm -rf node_modules yarn.lock package-lock.json",
     "reset": "npm run clean && npm i && npm run build && npm test"
   },
-  "author": "RefugeRestrooms",
+  "author": {
+    "name": "Voxgig",
+    "url": "https://voxgig.com"
+  },
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {},

@@ -10,7 +10,7 @@ The TypeScript SDK for the RefugeRestrooms API — a type-safe, entity-oriented 
 
 ## Install
 ```bash
-npm install refuge-restrooms
+npm install @voxgig-sdk/refuge-restrooms
 ```
 ## Tutorial: your first API call
 

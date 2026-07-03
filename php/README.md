@@ -10,7 +10,7 @@ The PHP SDK for the RefugeRestrooms API — an entity-oriented client using PHP 
 
 ## Install
 ```bash
-composer require voxgig/refuge-restrooms-sdk
+composer require voxgig-sdk/refuge-restrooms
 ```
 
 

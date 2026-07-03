@@ -10,7 +10,7 @@ The Python SDK for the RefugeRestrooms API — an entity-oriented client followi
 
 ## Install
 ```bash
-pip install refuge-restrooms-sdk
+pip install voxgig-sdk-refuge-restrooms
 ```
 
 Or install from source:

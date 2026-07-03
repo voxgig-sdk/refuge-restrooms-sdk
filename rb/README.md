@@ -10,13 +10,13 @@ The Ruby SDK for the RefugeRestrooms API — an entity-oriented client using idi
 
 ## Install
 ```bash
-gem install refuge-restrooms-sdk
+gem install voxgig-sdk-refuge-restrooms
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "refuge-restrooms-sdk"
+gem "voxgig-sdk-refuge-restrooms"
 ```
 
 Then run:
