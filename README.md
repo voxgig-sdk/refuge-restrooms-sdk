@@ -1,22 +1,8 @@
 # RefugeRestrooms SDK
 
-Find safe, gender-neutral restrooms by location or address
+Refuge Restrooms API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Refuge Restrooms API
-
-[Refuge Restrooms](https://www.refugerestrooms.org/) is a community-maintained directory of safe, gender-neutral, and accessible restroom locations. The project was created to help transgender, intersex, and gender-nonconforming people find restrooms they can use without harassment, and is sustained by volunteers and donor funding.
-
-The API exposes the restroom records contributed by the community so third-party apps and maps can query the dataset directly.
-
-What you get from the API:
-
-- A `restrooms` collection covering venues that have been submitted and reviewed by the community
-- Search by location (geographic coordinates) or by address, returning nearby matches
-- Standard restroom metadata such as name, street/city/state, directions, accessibility, and unisex flags as recorded by submitters
-
-The API is served from `https://www.refugerestrooms.org/api` (v1). No authentication key is documented for read access. CORS is not enabled by default, so browser apps may need a proxy.
 
 ## Try it
 
@@ -50,29 +36,31 @@ gem install refuge-restrooms-sdk
 luarocks install refuge-restrooms-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { RefugeRestroomsSDK } from 'refuge-restrooms'
 
-const client = new RefugeRestroomsSDK({})
+const client = new RefugeRestroomsSDK({
+  apikey: process.env.REFUGE-RESTROOMS_APIKEY,
+})
 
 // List all restrooms
 const restrooms = await client.Restroom().list()
+console.log(restrooms.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -102,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Restroom** | A community-submitted restroom record with location, address, and accessibility/unisex metadata; exposed under `/api/v1/restrooms` with search-by-location and search-by-address variants. | `/v1/restrooms` |
+| **Restroom** |  | `/v1/restrooms` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from refugerestrooms_sdk import RefugeRestroomsSDK
 
-client = RefugeRestroomsSDK({})
+client = RefugeRestroomsSDK({
+    "apikey": os.environ.get("REFUGE-RESTROOMS_APIKEY"),
+})
 
 # List all restrooms
-restrooms, err = client.Restroom(None).list(None, None)
+restrooms, err = client.Restroom().list()
+print(restrooms)
 ```
 
 ### PHP
@@ -126,10 +118,13 @@ restrooms, err = client.Restroom(None).list(None, None)
 <?php
 require_once 'refugerestrooms_sdk.php';
 
-$client = new RefugeRestroomsSDK([]);
+$client = new RefugeRestroomsSDK([
+    "apikey" => getenv("REFUGE-RESTROOMS_APIKEY"),
+]);
 
 // List all restrooms
-[$restrooms, $err] = $client->Restroom(null)->list(null, null);
+[$restrooms, $err] = $client->Restroom()->list();
+print_r($restrooms);
 ```
 
 ### Golang
@@ -137,10 +132,13 @@ $client = new RefugeRestroomsSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/refuge-restrooms-sdk/go"
 
-client := sdk.NewRefugeRestroomsSDK(map[string]any{})
+client := sdk.NewRefugeRestroomsSDK(map[string]any{
+    "apikey": os.Getenv("REFUGE-RESTROOMS_APIKEY"),
+})
 
 // List all restrooms
 restrooms, err := client.Restroom(nil).List(nil, nil)
+fmt.Println(restrooms)
 ```
 
 ### Ruby
@@ -148,10 +146,13 @@ restrooms, err := client.Restroom(nil).List(nil, nil)
 ```ruby
 require_relative "RefugeRestrooms_sdk"
 
-client = RefugeRestroomsSDK.new({})
+client = RefugeRestroomsSDK.new({
+  "apikey" => ENV["REFUGE-RESTROOMS_APIKEY"],
+})
 
 # List all restrooms
-restrooms, err = client.Restroom(nil).list(nil, nil)
+restrooms, err = client.Restroom().list
+puts restrooms
 ```
 
 ### Lua
@@ -159,10 +160,13 @@ restrooms, err = client.Restroom(nil).list(nil, nil)
 ```lua
 local sdk = require("refuge-restrooms_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("REFUGE-RESTROOMS_APIKEY"),
+})
 
 -- List all restrooms
-local restrooms, err = client:Restroom(nil):list(nil, nil)
+local restrooms, err = client:Restroom():list()
+print(restrooms)
 ```
 
 ## Unit testing in offline mode
@@ -181,25 +185,21 @@ const result = await client.Restroom().load({ id: 'test01' })
 ### Python
 
 ```python
-client = RefugeRestroomsSDK.test(None, None)
-result, err = client.Restroom(None).load(
-    {"id": "test01"}, None
-)
+client = RefugeRestroomsSDK.test()
+result, err = client.Restroom().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = RefugeRestroomsSDK::test(null, null);
-[$result, $err] = $client->Restroom(null)->load(
-    ["id" => "test01"], null
-);
+$client = RefugeRestroomsSDK::test();
+[$result, $err] = $client->Restroom()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Restroom(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -208,19 +208,15 @@ result, err := client.Restroom(nil).Load(
 ### Ruby
 
 ```ruby
-client = RefugeRestroomsSDK.test(nil, nil)
-result, err = client.Restroom(nil).load(
-  { "id" => "test01" }, nil
-)
+client = RefugeRestroomsSDK.test
+result, err = client.Restroom().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Restroom(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Restroom():load({ id = "test01" })
 ```
 
 ## How it works
@@ -324,16 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Refuge Restrooms API
-
-- Upstream: [https://www.refugerestrooms.org/](https://www.refugerestrooms.org/)
-- API docs: [https://www.refugerestrooms.org/api/docs/](https://www.refugerestrooms.org/api/docs/)
-
-- Refuge Restrooms is a community-driven open-source project; the site footer marks the project "copyleft refuge restrooms".
-- Source code is available on GitHub; consult the repository for the canonical licence text before redistributing data.
-- Attribute Refuge Restrooms and link back to refugerestrooms.org when displaying API data.
-- The project is donor-supported (Patreon); heavy users should be considerate with request volume.
 
 ---
 

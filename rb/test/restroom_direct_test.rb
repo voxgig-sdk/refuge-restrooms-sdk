@@ -62,12 +62,14 @@ def restroom_direct_setup(mockres)
   env = Runner.env_override({
     "REFUGERESTROOMS_TEST_RESTROOM_ENTID" => {},
     "REFUGERESTROOMS_TEST_LIVE" => "FALSE",
+    "REFUGERESTROOMS_APIKEY" => "NONE",
   })
 
   live = env["REFUGERESTROOMS_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["REFUGERESTROOMS_APIKEY"],
     }
     client = RefugeRestroomsSDK.new(merged_opts)
     return {

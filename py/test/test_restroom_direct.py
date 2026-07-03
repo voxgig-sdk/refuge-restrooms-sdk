@@ -61,12 +61,14 @@ def _restroom_direct_setup(mockres):
     env = runner.env_override({
         "REFUGERESTROOMS_TEST_RESTROOM_ENTID": {},
         "REFUGERESTROOMS_TEST_LIVE": "FALSE",
+        "REFUGERESTROOMS_APIKEY": "NONE",
     })
 
     live = env.get("REFUGERESTROOMS_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("REFUGERESTROOMS_APIKEY"),
         }
         client = RefugeRestroomsSDK(merged_opts)
         return {

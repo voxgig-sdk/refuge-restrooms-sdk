@@ -92,6 +92,7 @@ function restroom_basic_setup(extra)
     ["REFUGERESTROOMS_TEST_RESTROOM_ENTID"] = idmap,
     ["REFUGERESTROOMS_TEST_LIVE"] = "FALSE",
     ["REFUGERESTROOMS_TEST_EXPLAIN"] = "FALSE",
+    ["REFUGERESTROOMS_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,6 +104,7 @@ function restroom_basic_setup(extra)
   if env["REFUGERESTROOMS_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["REFUGERESTROOMS_APIKEY"],
       },
       extra or {},
     })

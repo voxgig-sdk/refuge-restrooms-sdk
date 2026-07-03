@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'REFUGERESTROOMS_TEST_RESTROOM_ENTID': {},
     'REFUGERESTROOMS_TEST_LIVE': 'FALSE',
+    'REFUGERESTROOMS_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.REFUGERESTROOMS_TEST_LIVE
 
   if (live) {
     const client = new RefugeRestroomsSDK({
+      apikey: env.REFUGERESTROOMS_APIKEY,
     })
 
     let idmap: any = env['REFUGERESTROOMS_TEST_RESTROOM_ENTID']

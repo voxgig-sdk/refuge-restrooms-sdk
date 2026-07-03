@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'REFUGE_RESTROOMS_TEST_RESTROOM_ENTID': idmap,
     'REFUGE_RESTROOMS_TEST_LIVE': 'FALSE',
     'REFUGE_RESTROOMS_TEST_EXPLAIN': 'FALSE',
+    'REFUGE_RESTROOMS_APIKEY': 'NONE',
   })
 
   idmap = env['REFUGE_RESTROOMS_TEST_RESTROOM_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new RefugeRestroomsSDK(merge([
       {
+        apikey: env.REFUGE_RESTROOMS_APIKEY,
       },
       extra
     ]))
