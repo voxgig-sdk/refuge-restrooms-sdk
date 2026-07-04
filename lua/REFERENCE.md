@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## RestroomEntity
 
 ```lua
-local restroom = client:restroom(nil)
+local restroom = client:Restroom(nil)
 ```
 
 ### Fields
@@ -116,7 +116,7 @@ local restroom = client:restroom(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:restroom():list()
+local results, err = client:Restroom():list()
 ```
 
 ### Common Methods

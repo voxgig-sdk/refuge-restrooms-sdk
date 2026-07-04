@@ -220,25 +220,15 @@ class RefugeRestroomsSDK:
         }
 
 
-    @property
-    def restroom(self):
-        """Idiomatic facade: client.restroom.list() / client.restroom.load({"id": ...})."""
-        from entity.restroom_entity import RestroomEntity
-        cached = getattr(self, "_restroom", None)
-        if cached is None:
-            cached = RestroomEntity(self, None)
-            self._restroom = cached
-        return cached
-
-    def Restroom(self, data=None):
-        # Deprecated: use client.restroom instead.
+    def Restroom(self, data=None) -> "RestroomEntity":
+        """Entity factory: client.Restroom().list({}) / client.Restroom().load({"id": ...})."""
         from entity.restroom_entity import RestroomEntity
         return RestroomEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "RefugeRestroomsSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class RefugeRestroomsSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.restroom_entity import RestroomEntity

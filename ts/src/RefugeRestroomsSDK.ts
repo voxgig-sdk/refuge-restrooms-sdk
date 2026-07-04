@@ -204,14 +204,7 @@ class RefugeRestroomsSDK {
 
 
 
-  _restroom?: RestroomEntity
-
-  // Idiomatic facade: `client.restroom.list()` / `client.restroom.load({ id })`.
-  get restroom(): RestroomEntity {
-    return (this._restroom ??= new RestroomEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.restroom` instead. */
+  // Entity access: `client.Restroom().list()` / `client.Restroom().load({ id })`.
   Restroom(data?: any) {
     const self = this
     return new RestroomEntity(self,data)

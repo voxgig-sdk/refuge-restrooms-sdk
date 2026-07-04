@@ -233,10 +233,10 @@ class RefugeRestroomsSDK
 
     private $_restroom = null;
 
-    // Idiomatic facade: $client->restroom()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Restroom() (PHP method
-    // names are case-insensitive).
-    public function restroom($data = null)
+    // Canonical facade: $client->Restroom()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->restroom()
+    // resolves here too.
+    public function Restroom($data = null)
     {
         require_once __DIR__ . '/entity/restroom_entity.php';
         if ($data === null) {

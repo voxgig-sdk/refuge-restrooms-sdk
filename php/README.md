@@ -29,18 +29,16 @@ require_once 'refugerestrooms_sdk.php';
 $client = new RefugeRestroomsSDK();
 ```
 
-### 2. List restrooms
+### 2. List restroom records
 
 ```php
 try {
-    $result = $client->restroom()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Restroom records — iterate directly.
+    $restrooms = $client->Restroom()->list();
+    foreach ($restrooms as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = RefugeRestroomsSDK::test();
+$client = RefugeRestroomsSDK::test([
+    "entity" => ["restroom" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->restroom()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$restroom = $client->Restroom()->load(["id" => "test01"]);
+print_r($restroom);
 ```
 
 ### Use a custom fetch function
@@ -245,7 +247,7 @@ API path: `/v1/restrooms`
 
 ### Restroom
 
-Create an instance: `const restroom = client.restroom`
+Create an instance: `$restroom = $client->Restroom();`
 
 #### Operations
 
@@ -278,8 +280,9 @@ Create an instance: `const restroom = client.restroom`
 
 #### Example: List
 
-```ts
-const restrooms = await client.restroom.list()
+```php
+// list() returns an array of Restroom records (throws on error).
+$restrooms = $client->Restroom()->list();
 ```
 
 
@@ -354,7 +357,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$restroom = $client->restroom();
+$restroom = $client->Restroom();
 $restroom->load(["id" => "example_id"]);
 
 // $restroom->dataGet() now returns the loaded restroom data

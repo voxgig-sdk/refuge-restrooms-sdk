@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:restroom():list() / client:restroom():load({ id = ... })
-function RefugeRestroomsSDK:restroom(data)
+-- Idiomatic facade: client:Restroom():list() / client:Restroom():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function RefugeRestroomsSDK:Restroom(data)
   local EntityMod = require("entity.restroom_entity")
   if data == nil then
     if self._restroom == nil then
@@ -253,12 +254,6 @@ function RefugeRestroomsSDK:restroom(data)
     end
     return self._restroom
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:restroom() instead.
-function RefugeRestroomsSDK:Restroom(data)
-  local EntityMod = require("entity.restroom_entity")
   return EntityMod.new(self, data)
 end
 

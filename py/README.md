@@ -31,14 +31,16 @@ from refugerestrooms_sdk import RefugeRestroomsSDK
 client = RefugeRestroomsSDK()
 ```
 
-### 2. List restrooms
+### 2. List restroom records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.restroom.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    restrooms = client.Restroom().list({})
+    for restroom in restrooms:
+        print(restroom)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = RefugeRestroomsSDK.test()
 
-result = client.restroom.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+restroom = client.Restroom().load({"id": "test01"})
+# restroom contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -237,7 +240,7 @@ API path: `/v1/restrooms`
 
 ### Restroom
 
-Create an instance: `const restroom = client.restroom`
+Create an instance: `restroom = client.Restroom()`
 
 #### Operations
 
@@ -270,8 +273,8 @@ Create an instance: `const restroom = client.restroom`
 
 #### Example: List
 
-```ts
-const restrooms = await client.restroom.list()
+```python
+restrooms = client.Restroom().list({})
 ```
 
 
@@ -345,7 +348,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-restroom = client.restroom
+restroom = client.Restroom()
 restroom.load({"id": "example_id"})
 
 # restroom.data_get() now returns the loaded restroom data

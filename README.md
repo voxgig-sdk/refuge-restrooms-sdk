@@ -26,9 +26,11 @@ import { RefugeRestroomsSDK } from '@voxgig-sdk/refuge-restrooms'
 
 const client = new RefugeRestroomsSDK()
 
-// List all restrooms
-const restrooms = await client.restroom.list()
-console.log(restrooms.data)
+// List all restrooms (returns Restroom[])
+const restrooms = await client.Restroom().list()
+for (const restroom of restrooms) {
+  console.log(restroom)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,9 +85,10 @@ from refugerestrooms_sdk import RefugeRestroomsSDK
 
 client = RefugeRestroomsSDK()
 
-# List all restrooms
-restrooms = client.restroom.list()
-print(restrooms)
+# List all restrooms (returns a list, raises on error)
+restrooms = client.Restroom().list({})
+for restroom in restrooms:
+    print(restroom)
 ```
 
 ### PHP
@@ -96,8 +99,8 @@ require_once 'refugerestrooms_sdk.php';
 
 $client = new RefugeRestroomsSDK();
 
-// List all restrooms (throws on error)
-$restrooms = $client->restroom()->list();
+// List all restrooms (returns an array; throws on error)
+$restrooms = $client->Restroom()->list();
 print_r($restrooms);
 ```
 
@@ -120,8 +123,8 @@ require_relative "RefugeRestrooms_sdk"
 
 client = RefugeRestroomsSDK.new
 
-# List all restrooms
-restrooms = client.restroom.list
+# List all restrooms (returns an Array; raises on error)
+restrooms = client.Restroom.list
 puts restrooms
 ```
 
@@ -133,7 +136,7 @@ local sdk = require("refuge-restrooms_sdk")
 local client = sdk.new()
 
 -- List all restrooms
-local restrooms, err = client:restroom():list()
+local restrooms, err = client:Restroom():list()
 print(restrooms)
 ```
 
@@ -146,22 +149,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = RefugeRestroomsSDK.test()
-const result = await client.restroom.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const restroom = await client.Restroom().load({ id: 1 })
+// restroom is a bare Restroom populated with mock data
+console.log(restroom)
 ```
 
 ### Python
 
 ```python
 client = RefugeRestroomsSDK.test()
-result = client.restroom.load({"id": "test01"})
+restroom = client.Restroom().load({"id": "test01"})
+print(restroom)
 ```
 
 ### PHP
 
 ```php
-$client = RefugeRestroomsSDK::test();
-$result = $client->restroom()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = RefugeRestroomsSDK::test([
+    "entity" => ["restroom" => ["test01" => ["id" => "test01"]]],
+]);
+$restroom = $client->Restroom()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -176,15 +184,18 @@ result, err := client.Restroom(nil).Load(
 ### Ruby
 
 ```ruby
-client = RefugeRestroomsSDK.test
-result = client.restroom.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = RefugeRestroomsSDK.test({
+  "entity" => { "restroom" => { "test01" => { "id" => "test01" } } },
+})
+restroom = client.Restroom.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:restroom():load({ id = "test01" })
+local result, err = client:Restroom():load({ id = "test01" })
 ```
 
 ## How it works
@@ -232,6 +243,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

@@ -109,7 +109,7 @@ Alias for `RefugeRestroomsSDK.test()`.
 ## RestroomEntity
 
 ```ts
-const restroom = client.restroom
+const restroom = client.Restroom()
 ```
 
 ### Fields
@@ -142,7 +142,7 @@ const restroom = client.restroom
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.restroom.list()
+const results = await client.Restroom().list()
 ```
 
 ### Common Methods

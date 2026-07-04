@@ -4,53 +4,55 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Restroom:
-    accessible: Optional[bool] = None
-    changing_table: Optional[bool] = None
-    city: Optional[str] = None
-    comment: Optional[str] = None
-    country: Optional[str] = None
-    created_at: Optional[str] = None
-    direction: Optional[str] = None
-    distance: Optional[float] = None
-    downvote: Optional[int] = None
-    id: Optional[int] = None
-    latitude: Optional[float] = None
-    longitude: Optional[float] = None
-    name: Optional[str] = None
-    state: Optional[str] = None
-    street: Optional[str] = None
-    unisex: Optional[bool] = None
-    updated_at: Optional[str] = None
-    upvote: Optional[int] = None
+class Restroom(TypedDict, total=False):
+    accessible: bool
+    changing_table: bool
+    city: str
+    comment: str
+    country: str
+    created_at: str
+    direction: str
+    distance: float
+    downvote: int
+    id: int
+    latitude: float
+    longitude: float
+    name: str
+    state: str
+    street: str
+    unisex: bool
+    updated_at: str
+    upvote: int
 
 
-@dataclass
-class RestroomListMatch:
-    accessible: Optional[bool] = None
-    changing_table: Optional[bool] = None
-    city: Optional[str] = None
-    comment: Optional[str] = None
-    country: Optional[str] = None
-    created_at: Optional[str] = None
-    direction: Optional[str] = None
-    distance: Optional[float] = None
-    downvote: Optional[int] = None
-    id: Optional[int] = None
-    latitude: Optional[float] = None
-    longitude: Optional[float] = None
-    name: Optional[str] = None
-    state: Optional[str] = None
-    street: Optional[str] = None
-    unisex: Optional[bool] = None
-    updated_at: Optional[str] = None
-    upvote: Optional[int] = None
-
+class RestroomListMatch(TypedDict, total=False):
+    accessible: bool
+    changing_table: bool
+    city: str
+    comment: str
+    country: str
+    created_at: str
+    direction: str
+    distance: float
+    downvote: int
+    id: int
+    latitude: float
+    longitude: float
+    name: str
+    state: str
+    street: str
+    unisex: bool
+    updated_at: str
+    upvote: int

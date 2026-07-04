@@ -208,13 +208,7 @@ class RefugeRestroomsSDK
   end
 
 
-  # Idiomatic facade: client.restroom.list / client.restroom.load({ "id" => ... })
-  def restroom
-    require_relative 'entity/restroom_entity'
-    @restroom ||= RestroomEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.restroom instead.
+  # Canonical facade: client.Restroom.list / client.Restroom.load({ "id" => ... })
   def Restroom(data = nil)
     require_relative 'entity/restroom_entity'
     RestroomEntity.new(self, data)

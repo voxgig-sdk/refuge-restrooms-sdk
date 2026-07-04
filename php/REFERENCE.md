@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## RestroomEntity
 
 ```php
-$restroom = $client->restroom();
+$restroom = $client->Restroom();
 ```
 
 ### Fields
@@ -118,7 +118,7 @@ $restroom = $client->restroom();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->restroom()->list([]);
+$results = $client->Restroom()->list([]);
 ```
 
 ### Common Methods
