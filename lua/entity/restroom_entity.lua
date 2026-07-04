@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch RestroomListMatch
+---@param ctrl? table
+---@return Restroom[]
+---@return string? err
 function RestroomEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

@@ -85,6 +85,27 @@ func (e *RestroomEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an Restroom; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *RestroomEntity) DataTyped(data ...Restroom) Restroom {
+	if len(data) > 0 {
+		return typedFrom[Restroom](e.Data(asMap(data[0])))
+	}
+	return typedFrom[Restroom](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through Restroom (all fields
+// optional at the wire level).
+func (e *RestroomEntity) MatchTyped(match ...Restroom) Restroom {
+	if len(match) > 0 {
+		return typedFrom[Restroom](e.Match(asMap(match[0])))
+	}
+	return typedFrom[Restroom](e.Match())
+}
+
 func (e *RestroomEntity) Load(_ map[string]any, _ map[string]any) (any, error) {
 	return core.UnsupportedOp("load", e.name)
 }
@@ -108,6 +129,17 @@ func (e *RestroomEntity) List(reqmatch map[string]any, ctrl map[string]any) (any
 			}
 		}
 	})
+}
+
+// ListTyped is the statically-typed variant of List: it takes an
+// RestroomListMatch and returns []Restroom. It delegates to the untyped
+// List (identical runtime) and converts at the typed boundary.
+func (e *RestroomEntity) ListTyped(reqmatch RestroomListMatch, ctrl map[string]any) ([]Restroom, error) {
+	res, err := e.List(asMap(reqmatch), ctrl)
+	if err != nil {
+		return nil, err
+	}
+	return typedSliceFrom[Restroom](res), nil
 }
 
 

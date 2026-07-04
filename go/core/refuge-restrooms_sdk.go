@@ -245,6 +245,9 @@ func (sdk *RefugeRestroomsSDK) Direct(fetchargs map[string]any) (map[string]any,
 }
 
 
+// Restroom returns a Restroom entity bound to this client.
+// Idiomatic usage: client.Restroom(nil).List(nil, nil) or
+// client.Restroom(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *RefugeRestroomsSDK) Restroom(data map[string]any) RefugeRestroomsEntity {
 	return NewRestroomEntityFunc(sdk, data)
 }

@@ -93,14 +93,12 @@ func restroomDirectSetup(mockres any) *restroomDirectSetupResult {
 	env := envOverride(map[string]any{
 		"REFUGERESTROOMS_TEST_RESTROOM_ENTID": map[string]any{},
 		"REFUGERESTROOMS_TEST_LIVE":    "FALSE",
-		"REFUGERESTROOMS_APIKEY":       "NONE",
 	})
 
 	live := env["REFUGERESTROOMS_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["REFUGERESTROOMS_APIKEY"],
 		}
 		client := sdk.NewRefugeRestroomsSDK(mergedOpts)
 

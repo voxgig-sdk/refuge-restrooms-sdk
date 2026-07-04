@@ -50,8 +50,7 @@ class TestRestroomEntity:
         restroom_ref01_ent = client.Restroom(None)
         restroom_ref01_match = {}
 
-        restroom_ref01_list_result, err = restroom_ref01_ent.list(restroom_ref01_match, None)
-        assert err is None
+        restroom_ref01_list_result = restroom_ref01_ent.list(restroom_ref01_match, None)
         assert isinstance(restroom_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _restroom_basic_setup(extra):
         "REFUGERESTROOMS_TEST_RESTROOM_ENTID": idmap,
         "REFUGERESTROOMS_TEST_LIVE": "FALSE",
         "REFUGERESTROOMS_TEST_EXPLAIN": "FALSE",
-        "REFUGERESTROOMS_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _restroom_basic_setup(extra):
     if env.get("REFUGERESTROOMS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("REFUGERESTROOMS_APIKEY"),
             },
             extra or {},
         ])

@@ -43,8 +43,7 @@ class RestroomEntityTest < Minitest::Test
     restroom_ref01_ent = client.Restroom(nil)
     restroom_ref01_match = {}
 
-    restroom_ref01_list_result, err = restroom_ref01_ent.list(restroom_ref01_match, nil)
-    assert_nil err
+    restroom_ref01_list_result = restroom_ref01_ent.list(restroom_ref01_match, nil)
     assert restroom_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def restroom_basic_setup(extra)
     "REFUGERESTROOMS_TEST_RESTROOM_ENTID" => idmap,
     "REFUGERESTROOMS_TEST_LIVE" => "FALSE",
     "REFUGERESTROOMS_TEST_EXPLAIN" => "FALSE",
-    "REFUGERESTROOMS_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def restroom_basic_setup(extra)
   if env["REFUGERESTROOMS_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["REFUGERESTROOMS_APIKEY"],
       },
       extra || {},
     ])

@@ -2,6 +2,8 @@
 
 import { RestroomEntity } from './entity/RestroomEntity'
 
+export type * from './RefugeRestroomsTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class RefugeRestroomsSDK {
 
 
 
+  _restroom?: RestroomEntity
+
+  // Idiomatic facade: `client.restroom.list()` / `client.restroom.load({ id })`.
+  get restroom(): RestroomEntity {
+    return (this._restroom ??= new RestroomEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.restroom` instead. */
   Restroom(data?: any) {
     const self = this
     return new RestroomEntity(self,data)

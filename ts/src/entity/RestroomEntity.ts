@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Restroom,
+  RestroomListMatch,
+} from '../RefugeRestroomsTypes'
 
 // TODO: needs Entity superclass
-class RestroomEntity extends RefugeRestroomsEntityBase {
+class RestroomEntity extends RefugeRestroomsEntityBase<Restroom> {
 
   constructor(client: RefugeRestroomsSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class RestroomEntity extends RefugeRestroomsEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: RestroomListMatch, ctrl?: Control): Promise<Restroom[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class RestroomEntity extends RefugeRestroomsEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Restroom[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

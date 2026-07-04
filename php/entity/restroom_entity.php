@@ -55,6 +55,9 @@ class RestroomEntity
         return new RestroomEntity($this->_client, $opts);
     }
 
+    /**
+     * @param Restroom|array $args Restroom data (assoc-array) to store.
+     */
     public function data_set($args): void
     {
         if ($args) {
@@ -63,12 +66,18 @@ class RestroomEntity
         }
     }
 
+    /**
+     * @return Restroom|array The current Restroom data as an assoc-array.
+     */
     public function data_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetData");
         return Struct::clone($this->_data);
     }
 
+    /**
+     * @param array $args Match filter (any subset of Restroom fields).
+     */
     public function match_set($args): void
     {
         if ($args) {
@@ -77,6 +86,9 @@ class RestroomEntity
         }
     }
 
+    /**
+     * @return array The current match filter (any subset of Restroom fields).
+     */
     public function match_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetMatch");
@@ -86,7 +98,16 @@ class RestroomEntity
     
 
     
-    public function list($reqmatch, $ctrl = null): array
+    /**
+     * List Restroom items matching the given filter.
+     *
+     * @param RestroomListMatch|array|null $reqmatch Match filter (any subset
+     *   of Restroom fields) as an assoc-array; RestroomListMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return Restroom[]|array A list of Restroom items as assoc-arrays at
+     *   the SDK boundary; throws RefugeRestroomsError on failure (item-5 convention).
+     */
+    public function list(?array $reqmatch = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -114,7 +135,7 @@ class RestroomEntity
 
     
 
-    private function _run_op($ctx, callable $post_done): array
+    private function _run_op($ctx, callable $post_done): mixed
     {
         $utility = $this->_utility;
 

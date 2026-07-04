@@ -9,9 +9,12 @@ The TypeScript SDK for the RefugeRestrooms API — a type-safe, entity-oriented 
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/refuge-restrooms
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/refuge-restrooms-sdk/releases](https://github.com/voxgig-sdk/refuge-restrooms-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { RefugeRestroomsSDK } from 'refuge-restrooms'
+import { RefugeRestroomsSDK } from '@voxgig-sdk/refuge-restrooms'
 
-const client = new RefugeRestroomsSDK({
-  apikey: process.env.REFUGE-RESTROOMS_APIKEY,
-})
+const client = new RefugeRestroomsSDK()
 ```
 
 ### 2. List restrooms
 
 ```ts
-const result = await client.Restroom().list()
+const result = await client.restroom.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = RefugeRestroomsSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.restroom.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new RefugeRestroomsSDK({ apikey: '...' })
+const client = new RefugeRestroomsSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.restroom
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new RefugeRestroomsSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -135,8 +135,7 @@ const client = new RefugeRestroomsSDK({
 Create a `.env.local` file at the project root:
 
 ```
-REFUGE-RESTROOMS_TEST_LIVE=TRUE
-REFUGE-RESTROOMS_APIKEY=<your-key>
+REFUGE_RESTROOMS_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new RefugeRestroomsSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new RefugeRestroomsSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -285,7 +282,7 @@ API path: `/v1/restrooms`
 
 ### Restroom
 
-Create an instance: `const restroom = client.Restroom()`
+Create an instance: `const restroom = client.restroom`
 
 #### Operations
 
@@ -319,7 +316,7 @@ Create an instance: `const restroom = client.Restroom()`
 #### Example: List
 
 ```ts
-const restrooms = await client.Restroom().list()
+const restrooms = await client.restroom.list()
 ```
 
 
@@ -380,7 +377,7 @@ refuge-restrooms/
 Import the SDK from the package root:
 
 ```ts
-import { RefugeRestroomsSDK } from 'refuge-restrooms'
+import { RefugeRestroomsSDK } from '@voxgig-sdk/refuge-restrooms'
 ```
 
 ### Entity state
@@ -390,11 +387,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const restroom = client.restroom
+await restroom.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// restroom.data() now returns the loaded restroom data
+// restroom.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

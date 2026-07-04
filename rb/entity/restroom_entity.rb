@@ -45,6 +45,7 @@ class RestroomEntity
     end
   end
 
+  # @return [Restroom, Hash] the current Restroom data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class RestroomEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Restroom fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class RestroomEntity
   
 
   
+  # List Restroom items matching the given filter.
+  #
+  # @param reqmatch [RestroomListMatch, Hash, nil] match filter (any subset of Restroom fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Restroom>, Array] the matching Restroom items; raises RefugeRestroomsError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

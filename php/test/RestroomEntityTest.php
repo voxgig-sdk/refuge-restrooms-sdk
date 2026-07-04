@@ -50,8 +50,7 @@ class RestroomEntityTest extends TestCase
         $restroom_ref01_ent = $client->Restroom(null);
         $restroom_ref01_match = [];
 
-        [$restroom_ref01_list_result, $err] = $restroom_ref01_ent->list($restroom_ref01_match, null);
-        $this->assertNull($err);
+        $restroom_ref01_list_result = $restroom_ref01_ent->list($restroom_ref01_match, null);
         $this->assertIsArray($restroom_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function restroom_basic_setup($extra)
         "REFUGERESTROOMS_TEST_RESTROOM_ENTID" => $idmap,
         "REFUGERESTROOMS_TEST_LIVE" => "FALSE",
         "REFUGERESTROOMS_TEST_EXPLAIN" => "FALSE",
-        "REFUGERESTROOMS_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function restroom_basic_setup($extra)
     if ($env["REFUGERESTROOMS_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["REFUGERESTROOMS_APIKEY"],
             ],
             $extra ?? [],
         ]);

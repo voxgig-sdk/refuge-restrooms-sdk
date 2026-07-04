@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:restroom():list() / client:restroom():load({ id = ... })
+function RefugeRestroomsSDK:restroom(data)
+  local EntityMod = require("entity.restroom_entity")
+  if data == nil then
+    if self._restroom == nil then
+      self._restroom = EntityMod.new(self, nil)
+    end
+    return self._restroom
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:restroom() instead.
 function RefugeRestroomsSDK:Restroom(data)
   local EntityMod = require("entity.restroom_entity")
   return EntityMod.new(self, data)
