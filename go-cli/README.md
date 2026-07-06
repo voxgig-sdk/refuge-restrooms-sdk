@@ -17,8 +17,6 @@ go build -o refuge-restrooms-cli ./...
 ```sh
 # One-shot: arguments form a single AQL expression
 ./refuge-restrooms-cli list restroom
-./refuge-restrooms-cli load 1 restroom
-./refuge-restrooms-cli load '{id:1}' restroom
 
 # REPL
 ./refuge-restrooms-cli
@@ -29,8 +27,6 @@ go build -o refuge-restrooms-cli ./...
 | Word     | Signatures                                   | Description                |
 |----------|----------------------------------------------|----------------------------|
 | `list`   | `[entity]` · `[query entity]`                | List records               |
-| `load`   | `[entity]` · `[query entity]`                | Load a single record       |
-| `update` | `[entity]` · `[query entity]`                | Update a record            |
 
 `query` is either a Map (`{id:1}`) or a Scalar (`1`, treated as `{id:1}`).
 `entity` is one of the SDK's entity names (auto-quoted as an atom).

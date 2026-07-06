@@ -85,7 +85,7 @@ Restroom = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Restroom#list (any subset of Restroom fields).
+# Request payload for Restroom#list.
 #
 # @!attribute [rw] accessible
 #   @return [Boolean, nil]

@@ -30,8 +30,7 @@ type Restroom struct {
 	Upvote *int `json:"upvote,omitempty"`
 }
 
-// RestroomListMatch mirrors the restroom fields as an all-optional match
-// filter (Go analog of Partial<Restroom>).
+// RestroomListMatch is the typed request payload for Restroom.ListTyped.
 type RestroomListMatch struct {
 	Accessible *bool `json:"accessible,omitempty"`
 	ChangingTable *bool `json:"changing_table,omitempty"`

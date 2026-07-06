@@ -97,24 +97,24 @@ restroom := client.Restroom(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `accessible` | ``$BOOLEAN`` | No |  |
-| `changing_table` | ``$BOOLEAN`` | No |  |
-| `city` | ``$STRING`` | No |  |
-| `comment` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `created_at` | ``$STRING`` | No |  |
-| `direction` | ``$STRING`` | No |  |
-| `distance` | ``$NUMBER`` | No |  |
-| `downvote` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `street` | ``$STRING`` | No |  |
-| `unisex` | ``$BOOLEAN`` | No |  |
-| `updated_at` | ``$STRING`` | No |  |
-| `upvote` | ``$INTEGER`` | No |  |
+| `accessible` | `bool` | No |  |
+| `changing_table` | `bool` | No |  |
+| `city` | `string` | No |  |
+| `comment` | `string` | No |  |
+| `country` | `string` | No |  |
+| `created_at` | `string` | No |  |
+| `direction` | `string` | No |  |
+| `distance` | `float64` | No |  |
+| `downvote` | `int` | No |  |
+| `id` | `int` | No |  |
+| `latitude` | `float64` | No |  |
+| `longitude` | `float64` | No |  |
+| `name` | `string` | No |  |
+| `state` | `string` | No |  |
+| `street` | `string` | No |  |
+| `unisex` | `bool` | No |  |
+| `updated_at` | `string` | No |  |
+| `upvote` | `int` | No |  |
 
 ### Operations
 

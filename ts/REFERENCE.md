@@ -116,24 +116,24 @@ const restroom = client.Restroom()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `accessible` | ``$BOOLEAN`` | No |  |
-| `changing_table` | ``$BOOLEAN`` | No |  |
-| `city` | ``$STRING`` | No |  |
-| `comment` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `created_at` | ``$STRING`` | No |  |
-| `direction` | ``$STRING`` | No |  |
-| `distance` | ``$NUMBER`` | No |  |
-| `downvote` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `street` | ``$STRING`` | No |  |
-| `unisex` | ``$BOOLEAN`` | No |  |
-| `updated_at` | ``$STRING`` | No |  |
-| `upvote` | ``$INTEGER`` | No |  |
+| `accessible` | `boolean` | No |  |
+| `changing_table` | `boolean` | No |  |
+| `city` | `string` | No |  |
+| `comment` | `string` | No |  |
+| `country` | `string` | No |  |
+| `created_at` | `string` | No |  |
+| `direction` | `string` | No |  |
+| `distance` | `number` | No |  |
+| `downvote` | `number` | No |  |
+| `id` | `number` | No |  |
+| `latitude` | `number` | No |  |
+| `longitude` | `number` | No |  |
+| `name` | `string` | No |  |
+| `state` | `string` | No |  |
+| `street` | `string` | No |  |
+| `unisex` | `boolean` | No |  |
+| `updated_at` | `string` | No |  |
+| `upvote` | `number` | No |  |
 
 ### Operations
 

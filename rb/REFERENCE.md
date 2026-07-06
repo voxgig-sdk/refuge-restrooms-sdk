@@ -8,7 +8,7 @@ Complete API reference for the RefugeRestrooms Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'refuge-restrooms_sdk'
+require_relative 'RefugeRestrooms_sdk'
 
 client = RefugeRestroomsSDK.new(options)
 ```
@@ -93,33 +93,33 @@ restroom = client.Restroom
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `accessible` | ``$BOOLEAN`` | No |  |
-| `changing_table` | ``$BOOLEAN`` | No |  |
-| `city` | ``$STRING`` | No |  |
-| `comment` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `created_at` | ``$STRING`` | No |  |
-| `direction` | ``$STRING`` | No |  |
-| `distance` | ``$NUMBER`` | No |  |
-| `downvote` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `street` | ``$STRING`` | No |  |
-| `unisex` | ``$BOOLEAN`` | No |  |
-| `updated_at` | ``$STRING`` | No |  |
-| `upvote` | ``$INTEGER`` | No |  |
+| `accessible` | `Boolean` | No |  |
+| `changing_table` | `Boolean` | No |  |
+| `city` | `String` | No |  |
+| `comment` | `String` | No |  |
+| `country` | `String` | No |  |
+| `created_at` | `String` | No |  |
+| `direction` | `String` | No |  |
+| `distance` | `Float` | No |  |
+| `downvote` | `Integer` | No |  |
+| `id` | `Integer` | No |  |
+| `latitude` | `Float` | No |  |
+| `longitude` | `Float` | No |  |
+| `name` | `String` | No |  |
+| `state` | `String` | No |  |
+| `street` | `String` | No |  |
+| `unisex` | `Boolean` | No |  |
+| `updated_at` | `String` | No |  |
+| `upvote` | `Integer` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Restroom.list(nil)
+results = client.Restroom.list
 ```
 
 ### Common Methods

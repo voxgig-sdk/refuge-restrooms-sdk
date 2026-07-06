@@ -8,7 +8,7 @@ Complete API reference for the RefugeRestrooms Python SDK.
 ### Constructor
 
 ```python
-from refuge-restrooms_sdk import RefugeRestroomsSDK
+from refugerestrooms_sdk import RefugeRestroomsSDK
 
 client = RefugeRestroomsSDK(options)
 ```
@@ -87,33 +87,33 @@ restroom = client.Restroom()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `accessible` | ``$BOOLEAN`` | No |  |
-| `changing_table` | ``$BOOLEAN`` | No |  |
-| `city` | ``$STRING`` | No |  |
-| `comment` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `created_at` | ``$STRING`` | No |  |
-| `direction` | ``$STRING`` | No |  |
-| `distance` | ``$NUMBER`` | No |  |
-| `downvote` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `street` | ``$STRING`` | No |  |
-| `unisex` | ``$BOOLEAN`` | No |  |
-| `updated_at` | ``$STRING`` | No |  |
-| `upvote` | ``$INTEGER`` | No |  |
+| `accessible` | `bool` | No |  |
+| `changing_table` | `bool` | No |  |
+| `city` | `str` | No |  |
+| `comment` | `str` | No |  |
+| `country` | `str` | No |  |
+| `created_at` | `str` | No |  |
+| `direction` | `str` | No |  |
+| `distance` | `float` | No |  |
+| `downvote` | `int` | No |  |
+| `id` | `int` | No |  |
+| `latitude` | `float` | No |  |
+| `longitude` | `float` | No |  |
+| `name` | `str` | No |  |
+| `state` | `str` | No |  |
+| `street` | `str` | No |  |
+| `unisex` | `bool` | No |  |
+| `updated_at` | `str` | No |  |
+| `upvote` | `int` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Restroom().list({})
+results = client.Restroom().list()
 for restroom in results:
     print(restroom)
 ```

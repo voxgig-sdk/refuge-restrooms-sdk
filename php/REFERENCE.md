@@ -8,7 +8,7 @@ Complete API reference for the RefugeRestrooms PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/refuge-restrooms_sdk.php';
+require_once __DIR__ . '/refugerestrooms_sdk.php';
 
 $client = new RefugeRestroomsSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = RefugeRestroomsSDK::test();
 
 Create a new `RestroomEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): RefugeRestroomsUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,50 +92,50 @@ $restroom = $client->Restroom();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `accessible` | ``$BOOLEAN`` | No |  |
-| `changing_table` | ``$BOOLEAN`` | No |  |
-| `city` | ``$STRING`` | No |  |
-| `comment` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `created_at` | ``$STRING`` | No |  |
-| `direction` | ``$STRING`` | No |  |
-| `distance` | ``$NUMBER`` | No |  |
-| `downvote` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `street` | ``$STRING`` | No |  |
-| `unisex` | ``$BOOLEAN`` | No |  |
-| `updated_at` | ``$STRING`` | No |  |
-| `upvote` | ``$INTEGER`` | No |  |
+| `accessible` | `bool` | No |  |
+| `changing_table` | `bool` | No |  |
+| `city` | `string` | No |  |
+| `comment` | `string` | No |  |
+| `country` | `string` | No |  |
+| `created_at` | `string` | No |  |
+| `direction` | `string` | No |  |
+| `distance` | `float` | No |  |
+| `downvote` | `int` | No |  |
+| `id` | `int` | No |  |
+| `latitude` | `float` | No |  |
+| `longitude` | `float` | No |  |
+| `name` | `string` | No |  |
+| `state` | `string` | No |  |
+| `street` | `string` | No |  |
+| `unisex` | `bool` | No |  |
+| `updated_at` | `string` | No |  |
+| `upvote` | `int` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Restroom()->list([]);
+$results = $client->Restroom()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -144,7 +144,7 @@ Set the entity match criteria.
 Create a new `RestroomEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

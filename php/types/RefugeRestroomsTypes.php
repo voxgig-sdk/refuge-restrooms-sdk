@@ -35,7 +35,7 @@ class Restroom
     public ?int $upvote = null;
 }
 
-/** Match filter for Restroom#list (any subset of Restroom fields). */
+/** Request payload for Restroom#list. */
 class RestroomListMatch
 {
     public ?bool $accessible = null;

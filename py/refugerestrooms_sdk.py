@@ -221,7 +221,7 @@ class RefugeRestroomsSDK:
 
 
     def Restroom(self, data=None) -> "RestroomEntity":
-        """Entity factory: client.Restroom().list({}) / client.Restroom().load({"id": ...})."""
+        """Entity factory: client.Restroom().list() / client.Restroom().load({"id": ...})."""
         from entity.restroom_entity import RestroomEntity
         return RestroomEntity(self, data)
 
