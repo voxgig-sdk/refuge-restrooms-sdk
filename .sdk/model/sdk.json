@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -440,14 +437,17 @@
           "name": "Open Source",
           "url": "https://github.com/RefugeRestrooms/refugerestrooms"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://www.refugerestrooms.org/api"
           }
         ],
+        "summary": "Provides access to gender-neutral restroom locations and information.",
         "title": "Refuge Restrooms API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://refugerestrooms.org"
       },
       "option": {},
       "target": {
@@ -500,6 +500,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -550,6 +553,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

@@ -20,9 +20,9 @@ main: {
           url: "https://www.refugerestrooms.org/api"
         }
       ]
+      summary: "Provides access to gender-neutral restroom locations and information."
       title: "Refuge Restrooms API"
       version: "1.0.0"
+      website: "https://refugerestrooms.org"
     }
   }
-}
-

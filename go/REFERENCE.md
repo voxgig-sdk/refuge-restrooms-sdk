@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 restroom := client.Restroom(nil)
+fmt.Println(restroom.GetName()) // "restroom"
 ```
 
 ### Fields
@@ -124,6 +125,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Restroom(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
