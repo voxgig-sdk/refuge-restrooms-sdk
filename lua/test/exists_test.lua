@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- RefugeRestrooms SDK exists test
 
 local sdk = require("refuge-restrooms_sdk")
 
