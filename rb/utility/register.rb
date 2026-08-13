@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ RefugeRestroomsUtility.registrar = ->(u) {
   u.prepare_params = RefugeRestroomsUtilities::PrepareParams
   u.prepare_path = RefugeRestroomsUtilities::PreparePath
   u.prepare_query = RefugeRestroomsUtilities::PrepareQuery
+  u.graphql_body = RefugeRestroomsUtilities::GraphqlBody
+  u.graphql_errors = RefugeRestroomsUtilities::GraphqlErrors
   u.result_basic = RefugeRestroomsUtilities::ResultBasic
   u.result_body = RefugeRestroomsUtilities::ResultBody
   u.result_headers = RefugeRestroomsUtilities::ResultHeaders

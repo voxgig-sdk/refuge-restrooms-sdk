@@ -28,7 +28,7 @@
 # @!attribute [rw] created_at
 #   @return [String, nil]
 #
-# @!attribute [rw] direction
+# @!attribute [rw] directions
 #   @return [String, nil]
 #
 # @!attribute [rw] distance
@@ -70,7 +70,7 @@ Restroom = Struct.new(
   :comment,
   :country,
   :created_at,
-  :direction,
+  :directions,
   :distance,
   :downvote,
   :id,
@@ -105,7 +105,7 @@ Restroom = Struct.new(
 # @!attribute [rw] created_at
 #   @return [String, nil]
 #
-# @!attribute [rw] direction
+# @!attribute [rw] directions
 #   @return [String, nil]
 #
 # @!attribute [rw] distance
@@ -147,7 +147,7 @@ RestroomListMatch = Struct.new(
   :comment,
   :country,
   :created_at,
-  :direction,
+  :directions,
   :distance,
   :downvote,
   :id,

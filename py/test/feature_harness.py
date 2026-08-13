@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import RefugeRestroomsControl
-from core.error import RefugeRestroomsError
-from core.result import RefugeRestroomsResult
-from core.spec import RefugeRestroomsSpec
+from refugerestrooms_sdk.config import make_config
+from refugerestrooms_sdk.features import _make_feature
+from refugerestrooms_sdk.core.control import RefugeRestroomsControl
+from refugerestrooms_sdk.core.error import RefugeRestroomsError
+from refugerestrooms_sdk.core.result import RefugeRestroomsResult
+from refugerestrooms_sdk.core.spec import RefugeRestroomsSpec
 
 
 # True when this SDK was generated with the named feature.

@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'RefugeRestrooms',
   }
 
 
@@ -98,7 +98,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "direction",
+          "name": "directions",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
@@ -245,6 +245,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/v1/restrooms",
               "parts": [
@@ -289,6 +290,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/v1/restrooms/by_location",
               "parts": [
@@ -324,6 +326,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/v1/restrooms/search",
               "parts": [

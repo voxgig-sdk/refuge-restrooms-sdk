@@ -218,9 +218,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local restroom, err = client:Restroom():load()
+    local restroom, err = client:Restroom():list()
     if err then error(err) end
-    -- restroom is the loaded record
+    -- restroom is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -237,7 +237,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `comment` |  |
 | `country` |  |
 | `created_at` |  |
-| `direction` |  |
+| `directions` |  |
 | `distance` |  |
 | `downvote` |  |
 | `id` |  |
@@ -279,7 +279,7 @@ Create an instance: `local restroom = client:Restroom(nil)`
 | `comment` | `string` |  |
 | `country` | `string` |  |
 | `created_at` | `string` |  |
-| `direction` | `string` |  |
+| `directions` | `string` |  |
 | `distance` | `number` |  |
 | `downvote` | `number` |  |
 | `id` | `number` |  |

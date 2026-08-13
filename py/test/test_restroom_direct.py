@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from refugerestrooms_sdk.utility.voxgig_struct import voxgig_struct as vs
 from refugerestrooms_sdk import RefugeRestroomsSDK
-from core import helpers
+from refugerestrooms_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _restroom_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "REFUGERESTROOMS_TEST_RESTROOM_ENTID": {},
-        "REFUGERESTROOMS_TEST_LIVE": "FALSE",
+        "REFUGE_RESTROOMS_TEST_RESTROOM_ENTID": {},
+        "REFUGE_RESTROOMS_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("REFUGERESTROOMS_TEST_LIVE") == "TRUE"
+    live = env.get("REFUGE_RESTROOMS_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

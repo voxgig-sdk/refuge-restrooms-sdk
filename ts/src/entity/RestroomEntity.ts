@@ -37,7 +37,7 @@ class RestroomEntity extends RefugeRestroomsEntityBase<Restroom> {
 
 
 
-  async list(this: any, reqmatch?: RestroomListMatch, ctrl?: Control): Promise<Restroom[]> {
+  async list(this: any, reqmatch?: RestroomListMatch, ctrl?: Control): Promise<RestroomEntity[]> {
 
     const utility = this._utility
 

@@ -12,7 +12,7 @@ export interface Restroom {
   comment?: string
   country?: string
   created_at?: string
-  direction?: string
+  directions?: string
   distance?: number
   downvote?: number
   id?: number
@@ -33,7 +33,7 @@ export interface RestroomListMatch {
   comment?: string
   country?: string
   created_at?: string
-  direction?: string
+  directions?: string
   distance?: number
   downvote?: number
   id?: number
@@ -45,5 +45,11 @@ export interface RestroomListMatch {
   unisex?: boolean
   updated_at?: string
   upvote?: number
+
+  // Selects a custom action instead of the plain list:
+  //   'by_location' | 'search'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 

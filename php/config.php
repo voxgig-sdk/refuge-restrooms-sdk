@@ -74,7 +74,7 @@ class RefugeRestroomsConfig
             ],
             [
               'active' => true,
-              'name' => 'direction',
+              'name' => 'directions',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 6,
@@ -221,6 +221,7 @@ class RefugeRestroomsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/restrooms',
                   'parts' => [
@@ -265,6 +266,7 @@ class RefugeRestroomsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/restrooms/by_location',
                   'parts' => [
@@ -300,6 +302,7 @@ class RefugeRestroomsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v1/restrooms/search',
                   'parts' => [

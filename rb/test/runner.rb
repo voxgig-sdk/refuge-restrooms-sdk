@@ -23,8 +23,8 @@ module RefugeRestroomsTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("REFUGERESTROOMS_TEST_LIVE")
-    override = getenv("REFUGERESTROOMS_TEST_OVERRIDE")
+    live = getenv("REFUGE_RESTROOMS_TEST_LIVE")
+    override = getenv("REFUGE_RESTROOMS_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module RefugeRestroomsTestRunner
       end
     end
 
-    explain = getenv("REFUGERESTROOMS_TEST_EXPLAIN")
-    m["REFUGERESTROOMS_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("REFUGE_RESTROOMS_TEST_EXPLAIN")
+    m["REFUGE_RESTROOMS_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

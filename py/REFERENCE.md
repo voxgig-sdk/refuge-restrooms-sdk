@@ -93,7 +93,7 @@ restroom = client.Restroom()
 | `comment` | `str` | No |  |
 | `country` | `str` | No |  |
 | `created_at` | `str` | No |  |
-| `direction` | `str` | No |  |
+| `directions` | `str` | No |  |
 | `distance` | `float` | No |  |
 | `downvote` | `int` | No |  |
 | `id` | `int` | No |  |

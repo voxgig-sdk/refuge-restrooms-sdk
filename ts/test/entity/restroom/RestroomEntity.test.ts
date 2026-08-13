@@ -26,8 +26,8 @@ import {
 describe('RestroomEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when REFUGERESTROOMS_TEST_LIVE=TRUE.
-  afterEach(liveDelay('REFUGERESTROOMS_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when REFUGE_RESTROOMS_TEST_LIVE=TRUE.
+  afterEach(liveDelay('REFUGE_RESTROOMS_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = RefugeRestroomsSDK.test()
@@ -63,7 +63,7 @@ describe('RestroomEntity', async () => {
     const restroom_ref01_ent = client.Restroom()
     const restroom_ref01_match: any = {}
 
-    const restroom_ref01_list = await restroom_ref01_ent.list(restroom_ref01_match)
+    const restroom_ref01_list = (await restroom_ref01_ent.list(restroom_ref01_match)).map((e: any) => e.data())
 
 
   })

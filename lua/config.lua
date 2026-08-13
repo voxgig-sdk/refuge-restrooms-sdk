@@ -68,7 +68,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "direction",
+            ["name"] = "directions",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 6,
@@ -215,6 +215,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/v1/restrooms",
                 ["parts"] = {
@@ -259,6 +260,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/v1/restrooms/by_location",
                 ["parts"] = {
@@ -294,6 +296,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/v1/restrooms/search",
                 ["parts"] = {

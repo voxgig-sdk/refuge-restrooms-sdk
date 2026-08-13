@@ -61,11 +61,11 @@ function restroom_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["REFUGERESTROOMS_TEST_RESTROOM_ENTID"] = {},
-    ["REFUGERESTROOMS_TEST_LIVE"] = "FALSE",
+    ["REFUGE_RESTROOMS_TEST_RESTROOM_ENTID"] = {},
+    ["REFUGE_RESTROOMS_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["REFUGERESTROOMS_TEST_LIVE"] == "TRUE"
+  local live = env["REFUGE_RESTROOMS_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

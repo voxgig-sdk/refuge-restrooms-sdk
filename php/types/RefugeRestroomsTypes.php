@@ -21,7 +21,7 @@ class Restroom
     public ?string $comment = null;
     public ?string $country = null;
     public ?string $created_at = null;
-    public ?string $direction = null;
+    public ?string $directions = null;
     public ?float $distance = null;
     public ?int $downvote = null;
     public ?int $id = null;
@@ -44,7 +44,7 @@ class RestroomListMatch
     public ?string $comment = null;
     public ?string $country = null;
     public ?string $created_at = null;
-    public ?string $direction = null;
+    public ?string $directions = null;
     public ?float $distance = null;
     public ?int $downvote = null;
     public ?int $id = null;

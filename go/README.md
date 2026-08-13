@@ -266,7 +266,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"comment"` |  |
 | `"country"` |  |
 | `"created_at"` |  |
-| `"direction"` |  |
+| `"directions"` |  |
 | `"distance"` |  |
 | `"downvote"` |  |
 | `"id"` |  |
@@ -308,7 +308,7 @@ Create an instance: `restroom := client.Restroom(nil)`
 | `comment` | `string` |  |
 | `country` | `string` |  |
 | `created_at` | `string` |  |
-| `direction` | `string` |  |
+| `directions` | `string` |  |
 | `distance` | `float64` |  |
 | `downvote` | `int` |  |
 | `id` | `int` |  |

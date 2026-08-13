@@ -35,7 +35,9 @@ const client = new RefugeRestroomsSDK()
 
 ### 2. List restroom records
 
-`list()` resolves to an array of Restroom objects — iterate it directly:
+`list()` resolves to an array of Restroom ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const restrooms = await client.Restroom().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = RefugeRestroomsSDK.test()
 
 const restroom = await client.Restroom().list()
-// restroom is a bare entity populated with mock response data
+// restroom is the entity, populated with mock response data
+// — call restroom.data() for the record itself
 console.log(restroom)
 ```
 
@@ -290,7 +293,7 @@ The `prepare()` method returns:
 | `comment` |  |
 | `country` |  |
 | `created_at` |  |
-| `direction` |  |
+| `directions` |  |
 | `distance` |  |
 | `downvote` |  |
 | `id` |  |
@@ -332,7 +335,7 @@ Create an instance: `const restroom = client.Restroom()`
 | `comment` | `string` |  |
 | `country` | `string` |  |
 | `created_at` | `string` |  |
-| `direction` | `string` |  |
+| `directions` | `string` |  |
 | `distance` | `number` |  |
 | `downvote` | `number` |  |
 | `id` | `number` |  |

@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import RefugeRestroomsSDK
-from core.error import RefugeRestroomsError
-from core.result import RefugeRestroomsResult
-from core.response import RefugeRestroomsResponse
-from core.spec import RefugeRestroomsSpec
-from feature.base_feature import RefugeRestroomsBaseFeature
+from projectname_sdk.core.error import RefugeRestroomsError
+from projectname_sdk.core.result import RefugeRestroomsResult
+from projectname_sdk.core.response import RefugeRestroomsResponse
+from projectname_sdk.core.spec import RefugeRestroomsSpec
+from projectname_sdk.feature.base_feature import RefugeRestroomsBaseFeature
 
 
 def _client():

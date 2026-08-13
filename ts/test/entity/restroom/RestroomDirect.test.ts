@@ -19,11 +19,15 @@ import {
 describe('RestroomDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when REFUGERESTROOMS_TEST_LIVE=TRUE.
-  afterEach(liveDelay('REFUGERESTROOMS_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when REFUGE_RESTROOMS_TEST_LIVE=TRUE.
+  afterEach(liveDelay('REFUGE_RESTROOMS_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new RefugeRestroomsSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -77,17 +81,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'REFUGERESTROOMS_TEST_RESTROOM_ENTID': {},
-    'REFUGERESTROOMS_TEST_LIVE': 'FALSE',
+    'REFUGE_RESTROOMS_TEST_RESTROOM_ENTID': {},
+    'REFUGE_RESTROOMS_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.REFUGERESTROOMS_TEST_LIVE
+  const live = 'TRUE' === env.REFUGE_RESTROOMS_TEST_LIVE
 
   if (live) {
     const client = new RefugeRestroomsSDK({
     })
 
-    let idmap: any = env['REFUGERESTROOMS_TEST_RESTROOM_ENTID']
+    let idmap: any = env['REFUGE_RESTROOMS_TEST_RESTROOM_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

@@ -13,7 +13,7 @@
 ---@field comment? string
 ---@field country? string
 ---@field created_at? string
----@field direction? string
+---@field directions? string
 ---@field distance? number
 ---@field downvote? number
 ---@field id? number
@@ -33,7 +33,7 @@
 ---@field comment? string
 ---@field country? string
 ---@field created_at? string
----@field direction? string
+---@field directions? string
 ---@field distance? number
 ---@field downvote? number
 ---@field id? number

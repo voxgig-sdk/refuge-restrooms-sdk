@@ -68,7 +68,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "direction",
+						"name": "directions",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 6,
@@ -215,6 +215,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/restrooms",
 								"parts": []any{
@@ -259,6 +260,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/restrooms/by_location",
 								"parts": []any{
@@ -294,6 +296,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/restrooms/search",
 								"parts": []any{
@@ -314,7 +317,6 @@ func MakeConfig() map[string]any {
 								"index$": 2,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

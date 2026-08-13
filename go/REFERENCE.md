@@ -104,7 +104,7 @@ fmt.Println(restroom.GetName()) // "restroom"
 | `comment` | `string` | No |  |
 | `country` | `string` | No |  |
 | `created_at` | `string` | No |  |
-| `direction` | `string` | No |  |
+| `directions` | `string` | No |  |
 | `distance` | `float64` | No |  |
 | `downvote` | `int` | No |  |
 | `id` | `int` | No |  |

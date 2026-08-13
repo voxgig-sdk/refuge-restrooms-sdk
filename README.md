@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = RefugeRestroomsSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = RefugeRestroomsSDK.test({
+  entity: {
+    restroom: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const restrooms = await client.Restroom().list()
-// restrooms is an array of bare Restroom records populated with mock data
+// restrooms is an array of Restroom entities, populated with mock data
+// — call restrooms[0].data() for the record itself
 console.log(restrooms)
 ```
 
@@ -110,7 +119,7 @@ import { RefugeRestroomsSDK } from '@voxgig-sdk/refuge-restrooms'
 
 const client = new RefugeRestroomsSDK()
 
-// List all restrooms (returns Restroom[])
+// List all restrooms (returns RestroomEntity[] — .data() for the record)
 const restrooms = await client.Restroom().list()
 for (const restroom of restrooms) {
   console.log(restroom)
@@ -343,6 +352,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://www.refugerestrooms.org/](https://www.refugerestrooms.org/)
 

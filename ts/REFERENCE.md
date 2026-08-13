@@ -122,7 +122,7 @@ const restroom = client.Restroom()
 | `comment` | `string` | No |  |
 | `country` | `string` | No |  |
 | `created_at` | `string` | No |  |
-| `direction` | `string` | No |  |
+| `directions` | `string` | No |  |
 | `distance` | `number` | No |  |
 | `downvote` | `number` | No |  |
 | `id` | `number` | No |  |
@@ -134,6 +134,27 @@ const restroom = client.Restroom()
 | `unisex` | `boolean` | No |  |
 | `updated_at` | `string` | No |  |
 | `upvote` | `number` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `by_location` | `/v1/restrooms/by_location` | `client.Restroom().list({ $action: 'by_location', ... })` |
+| `search` | `/v1/restrooms/search` | `client.Restroom().list({ $action: 'search', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Restroom record — check the API definition for its shape.
+
+```ts
+const result = await client.Restroom().list({
+  $action: 'by_location',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 

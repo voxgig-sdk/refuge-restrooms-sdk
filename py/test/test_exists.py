@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# RefugeRestrooms SDK exists test
 
 import pytest
 from refugerestrooms_sdk import RefugeRestroomsSDK

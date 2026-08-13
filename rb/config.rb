@@ -69,7 +69,7 @@ module RefugeRestroomsConfig
             },
             {
               "active" => true,
-              "name" => "direction",
+              "name" => "directions",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 6,
@@ -216,6 +216,7 @@ module RefugeRestroomsConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v1/restrooms",
                   "parts" => [
@@ -260,6 +261,7 @@ module RefugeRestroomsConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v1/restrooms/by_location",
                   "parts" => [
@@ -295,6 +297,7 @@ module RefugeRestroomsConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v1/restrooms/search",
                   "parts" => [

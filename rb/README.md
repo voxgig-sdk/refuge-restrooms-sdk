@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = RefugeRestroomsSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 restroom = client.Restroom.list()
 puts restroom
 ```
@@ -242,7 +243,7 @@ returns a result `Hash` with these keys:
 | `comment` |  |
 | `country` |  |
 | `created_at` |  |
-| `direction` |  |
+| `directions` |  |
 | `distance` |  |
 | `downvote` |  |
 | `id` |  |
@@ -284,7 +285,7 @@ Create an instance: `restroom = client.Restroom`
 | `comment` | `String` |  |
 | `country` | `String` |  |
 | `created_at` | `String` |  |
-| `direction` | `String` |  |
+| `directions` | `String` |  |
 | `distance` | `Float` |  |
 | `downvote` | `Integer` |  |
 | `id` | `Integer` |  |

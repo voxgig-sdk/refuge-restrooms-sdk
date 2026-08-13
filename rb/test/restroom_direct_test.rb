@@ -60,11 +60,11 @@ def restroom_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "REFUGERESTROOMS_TEST_RESTROOM_ENTID" => {},
-    "REFUGERESTROOMS_TEST_LIVE" => "FALSE",
+    "REFUGE_RESTROOMS_TEST_RESTROOM_ENTID" => {},
+    "REFUGE_RESTROOMS_TEST_LIVE" => "FALSE",
   })
 
-  live = env["REFUGERESTROOMS_TEST_LIVE"] == "TRUE"
+  live = env["REFUGE_RESTROOMS_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
