@@ -15,7 +15,7 @@ require_relative "../RefugeRestrooms_sdk"
 module RefugeRestroomsFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = RefugeRestroomsConfig.make_config["feature"]
+    f = RefugeRestroomsConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

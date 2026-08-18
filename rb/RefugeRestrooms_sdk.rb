@@ -28,7 +28,7 @@ class RefugeRestroomsSDK
     utility = RefugeRestroomsUtility.new
     @_utility = utility
 
-    config = RefugeRestroomsConfig.make_config
+    config = RefugeRestroomsConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from refugerestrooms_sdk.config import make_config
+from refugerestrooms_sdk.config import shared_config
 from refugerestrooms_sdk.features import _make_feature
 from refugerestrooms_sdk.core.control import RefugeRestroomsControl
 from refugerestrooms_sdk.core.error import RefugeRestroomsError
@@ -24,7 +24,7 @@ from refugerestrooms_sdk.core.spec import RefugeRestroomsSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

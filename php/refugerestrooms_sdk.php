@@ -40,7 +40,7 @@ class RefugeRestroomsSDK
         $utility = new RefugeRestroomsUtility();
         $this->_utility = $utility;
 
-        $config = RefugeRestroomsConfig::make_config();
+        $config = RefugeRestroomsConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
