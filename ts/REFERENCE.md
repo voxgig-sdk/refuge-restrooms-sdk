@@ -116,24 +116,24 @@ const restroom = client.Restroom()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `accessible` | `boolean` | No |  |
-| `changing_table` | `boolean` | No |  |
-| `city` | `string` | No |  |
-| `comment` | `string` | No |  |
-| `country` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `directions` | `string` | No |  |
-| `distance` | `number` | No |  |
-| `downvote` | `number` | No |  |
-| `id` | `number` | No |  |
-| `latitude` | `number` | No |  |
-| `longitude` | `number` | No |  |
-| `name` | `string` | No |  |
-| `state` | `string` | No |  |
-| `street` | `string` | No |  |
-| `unisex` | `boolean` | No |  |
-| `updated_at` | `string` | No |  |
-| `upvote` | `number` | No |  |
+| `accessible` | `boolean` | No | Whether the restroom is ADA accessible |
+| `changing_table` | `boolean` | No | Whether a changing table is available |
+| `city` | `string` | No | City name |
+| `comment` | `string` | No | Additional comments or notes |
+| `country` | `string` | No | Country code |
+| `created_at` | `string` | No | Timestamp when the restroom was added |
+| `directions` | `string` | No | Directions to find the restroom |
+| `distance` | `number` | No | Distance from search location in miles |
+| `downvote` | `number` | No | Number of downvotes |
+| `id` | `number` | No | Unique identifier for the restroom |
+| `latitude` | `number` | No | Latitude coordinate |
+| `longitude` | `number` | No | Longitude coordinate |
+| `name` | `string` | No | Name of the location or establishment |
+| `state` | `string` | No | State or province |
+| `street` | `string` | No | Street address |
+| `unisex` | `boolean` | No | Whether the restroom is unisex/gender-neutral |
+| `updated_at` | `string` | No | Timestamp when the restroom was last updated |
+| `upvote` | `number` | No | Number of upvotes |
 
 ### Actions
 

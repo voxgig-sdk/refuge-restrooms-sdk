@@ -93,24 +93,24 @@ restroom = client.Restroom
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `accessible` | `Boolean` | No |  |
-| `changing_table` | `Boolean` | No |  |
-| `city` | `String` | No |  |
-| `comment` | `String` | No |  |
-| `country` | `String` | No |  |
-| `created_at` | `String` | No |  |
-| `directions` | `String` | No |  |
-| `distance` | `Float` | No |  |
-| `downvote` | `Integer` | No |  |
-| `id` | `Integer` | No |  |
-| `latitude` | `Float` | No |  |
-| `longitude` | `Float` | No |  |
-| `name` | `String` | No |  |
-| `state` | `String` | No |  |
-| `street` | `String` | No |  |
-| `unisex` | `Boolean` | No |  |
-| `updated_at` | `String` | No |  |
-| `upvote` | `Integer` | No |  |
+| `accessible` | `Boolean` | No | Whether the restroom is ADA accessible |
+| `changing_table` | `Boolean` | No | Whether a changing table is available |
+| `city` | `String` | No | City name |
+| `comment` | `String` | No | Additional comments or notes |
+| `country` | `String` | No | Country code |
+| `created_at` | `String` | No | Timestamp when the restroom was added |
+| `directions` | `String` | No | Directions to find the restroom |
+| `distance` | `Float` | No | Distance from search location in miles |
+| `downvote` | `Integer` | No | Number of downvotes |
+| `id` | `Integer` | No | Unique identifier for the restroom |
+| `latitude` | `Float` | No | Latitude coordinate |
+| `longitude` | `Float` | No | Longitude coordinate |
+| `name` | `String` | No | Name of the location or establishment |
+| `state` | `String` | No | State or province |
+| `street` | `String` | No | Street address |
+| `unisex` | `Boolean` | No | Whether the restroom is unisex/gender-neutral |
+| `updated_at` | `String` | No | Timestamp when the restroom was last updated |
+| `upvote` | `Integer` | No | Number of upvotes |
 
 ### Operations
 

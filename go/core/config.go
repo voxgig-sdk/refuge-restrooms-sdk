@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "RefugeRestrooms",
+			"slug": "refuge-restrooms",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,74 +36,92 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "accessible",
+						"short": "Whether the restroom is ADA accessible",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "changing_table",
+						"short": "Whether a changing table is available",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "city",
+						"short": "City name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "comment",
+						"short": "Additional comments or notes",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "country",
+						"short": "Country code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "created_at",
+						"short": "Timestamp when the restroom was added",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "directions",
+						"short": "Directions to find the restroom",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "distance",
+						"short": "Distance from search location in miles",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "downvote",
+						"short": "Number of downvotes",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the restroom",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "latitude",
+						"short": "Latitude coordinate",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "longitude",
+						"short": "Longitude coordinate",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the location or establishment",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "state",
+						"short": "State or province",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "street",
+						"short": "Street address",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "unisex",
+						"short": "Whether the restroom is unisex/gender-neutral",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "updated_at",
+						"short": "Timestamp when the restroom was last updated",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "upvote",
+						"short": "Number of upvotes",
 						"type": "`$INTEGER`",
 					},
 				},

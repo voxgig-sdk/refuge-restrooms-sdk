@@ -243,24 +243,24 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `accessible` |  |
-| `changing_table` |  |
-| `city` |  |
-| `comment` |  |
-| `country` |  |
-| `created_at` |  |
-| `directions` |  |
-| `distance` |  |
-| `downvote` |  |
-| `id` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `name` |  |
-| `state` |  |
-| `street` |  |
-| `unisex` |  |
-| `updated_at` |  |
-| `upvote` |  |
+| `accessible` | Whether the restroom is ADA accessible |
+| `changing_table` | Whether a changing table is available |
+| `city` | City name |
+| `comment` | Additional comments or notes |
+| `country` | Country code |
+| `created_at` | Timestamp when the restroom was added |
+| `directions` | Directions to find the restroom |
+| `distance` | Distance from search location in miles |
+| `downvote` | Number of downvotes |
+| `id` | Unique identifier for the restroom |
+| `latitude` | Latitude coordinate |
+| `longitude` | Longitude coordinate |
+| `name` | Name of the location or establishment |
+| `state` | State or province |
+| `street` | Street address |
+| `unisex` | Whether the restroom is unisex/gender-neutral |
+| `updated_at` | Timestamp when the restroom was last updated |
+| `upvote` | Number of upvotes |
 
 Operations: List.
 
@@ -285,24 +285,24 @@ Create an instance: `restroom = client.Restroom()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `accessible` | `bool` |  |
-| `changing_table` | `bool` |  |
-| `city` | `str` |  |
-| `comment` | `str` |  |
-| `country` | `str` |  |
-| `created_at` | `str` |  |
-| `directions` | `str` |  |
-| `distance` | `float` |  |
-| `downvote` | `int` |  |
-| `id` | `int` |  |
-| `latitude` | `float` |  |
-| `longitude` | `float` |  |
-| `name` | `str` |  |
-| `state` | `str` |  |
-| `street` | `str` |  |
-| `unisex` | `bool` |  |
-| `updated_at` | `str` |  |
-| `upvote` | `int` |  |
+| `accessible` | `bool` | Whether the restroom is ADA accessible |
+| `changing_table` | `bool` | Whether a changing table is available |
+| `city` | `str` | City name |
+| `comment` | `str` | Additional comments or notes |
+| `country` | `str` | Country code |
+| `created_at` | `str` | Timestamp when the restroom was added |
+| `directions` | `str` | Directions to find the restroom |
+| `distance` | `float` | Distance from search location in miles |
+| `downvote` | `int` | Number of downvotes |
+| `id` | `int` | Unique identifier for the restroom |
+| `latitude` | `float` | Latitude coordinate |
+| `longitude` | `float` | Longitude coordinate |
+| `name` | `str` | Name of the location or establishment |
+| `state` | `str` | State or province |
+| `street` | `str` | Street address |
+| `unisex` | `bool` | Whether the restroom is unisex/gender-neutral |
+| `updated_at` | `str` | Timestamp when the restroom was last updated |
+| `upvote` | `int` | Number of upvotes |
 
 #### Example: List
 

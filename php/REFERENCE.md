@@ -92,24 +92,24 @@ $restroom = $client->Restroom();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `accessible` | `bool` | No |  |
-| `changing_table` | `bool` | No |  |
-| `city` | `string` | No |  |
-| `comment` | `string` | No |  |
-| `country` | `string` | No |  |
-| `created_at` | `string` | No |  |
-| `directions` | `string` | No |  |
-| `distance` | `float` | No |  |
-| `downvote` | `int` | No |  |
-| `id` | `int` | No |  |
-| `latitude` | `float` | No |  |
-| `longitude` | `float` | No |  |
-| `name` | `string` | No |  |
-| `state` | `string` | No |  |
-| `street` | `string` | No |  |
-| `unisex` | `bool` | No |  |
-| `updated_at` | `string` | No |  |
-| `upvote` | `int` | No |  |
+| `accessible` | `bool` | No | Whether the restroom is ADA accessible |
+| `changing_table` | `bool` | No | Whether a changing table is available |
+| `city` | `string` | No | City name |
+| `comment` | `string` | No | Additional comments or notes |
+| `country` | `string` | No | Country code |
+| `created_at` | `string` | No | Timestamp when the restroom was added |
+| `directions` | `string` | No | Directions to find the restroom |
+| `distance` | `float` | No | Distance from search location in miles |
+| `downvote` | `int` | No | Number of downvotes |
+| `id` | `int` | No | Unique identifier for the restroom |
+| `latitude` | `float` | No | Latitude coordinate |
+| `longitude` | `float` | No | Longitude coordinate |
+| `name` | `string` | No | Name of the location or establishment |
+| `state` | `string` | No | State or province |
+| `street` | `string` | No | Street address |
+| `unisex` | `bool` | No | Whether the restroom is unisex/gender-neutral |
+| `updated_at` | `string` | No | Timestamp when the restroom was last updated |
+| `upvote` | `int` | No | Number of upvotes |
 
 ### Operations
 

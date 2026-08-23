@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -287,24 +287,24 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `accessible` |  |
-| `changing_table` |  |
-| `city` |  |
-| `comment` |  |
-| `country` |  |
-| `created_at` |  |
-| `directions` |  |
-| `distance` |  |
-| `downvote` |  |
-| `id` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `name` |  |
-| `state` |  |
-| `street` |  |
-| `unisex` |  |
-| `updated_at` |  |
-| `upvote` |  |
+| `accessible` | Whether the restroom is ADA accessible |
+| `changing_table` | Whether a changing table is available |
+| `city` | City name |
+| `comment` | Additional comments or notes |
+| `country` | Country code |
+| `created_at` | Timestamp when the restroom was added |
+| `directions` | Directions to find the restroom |
+| `distance` | Distance from search location in miles |
+| `downvote` | Number of downvotes |
+| `id` | Unique identifier for the restroom |
+| `latitude` | Latitude coordinate |
+| `longitude` | Longitude coordinate |
+| `name` | Name of the location or establishment |
+| `state` | State or province |
+| `street` | Street address |
+| `unisex` | Whether the restroom is unisex/gender-neutral |
+| `updated_at` | Timestamp when the restroom was last updated |
+| `upvote` | Number of upvotes |
 
 Operations: list.
 
@@ -329,24 +329,24 @@ Create an instance: `const restroom = client.Restroom()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `accessible` | `boolean` |  |
-| `changing_table` | `boolean` |  |
-| `city` | `string` |  |
-| `comment` | `string` |  |
-| `country` | `string` |  |
-| `created_at` | `string` |  |
-| `directions` | `string` |  |
-| `distance` | `number` |  |
-| `downvote` | `number` |  |
-| `id` | `number` |  |
-| `latitude` | `number` |  |
-| `longitude` | `number` |  |
-| `name` | `string` |  |
-| `state` | `string` |  |
-| `street` | `string` |  |
-| `unisex` | `boolean` |  |
-| `updated_at` | `string` |  |
-| `upvote` | `number` |  |
+| `accessible` | `boolean` | Whether the restroom is ADA accessible |
+| `changing_table` | `boolean` | Whether a changing table is available |
+| `city` | `string` | City name |
+| `comment` | `string` | Additional comments or notes |
+| `country` | `string` | Country code |
+| `created_at` | `string` | Timestamp when the restroom was added |
+| `directions` | `string` | Directions to find the restroom |
+| `distance` | `number` | Distance from search location in miles |
+| `downvote` | `number` | Number of downvotes |
+| `id` | `number` | Unique identifier for the restroom |
+| `latitude` | `number` | Latitude coordinate |
+| `longitude` | `number` | Longitude coordinate |
+| `name` | `string` | Name of the location or establishment |
+| `state` | `string` | State or province |
+| `street` | `string` | Street address |
+| `unisex` | `boolean` | Whether the restroom is unisex/gender-neutral |
+| `updated_at` | `string` | Timestamp when the restroom was last updated |
+| `upvote` | `number` | Number of upvotes |
 
 #### Example: List
 

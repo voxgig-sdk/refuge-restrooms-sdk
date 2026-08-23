@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'RefugeRestrooms',
+        slug: "refuge-restrooms",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -56,74 +67,92 @@ class Config {
       "fields": [
         {
           "name": "accessible",
+          "short": "Whether the restroom is ADA accessible",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "changing_table",
+          "short": "Whether a changing table is available",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "city",
+          "short": "City name",
           "type": "`$STRING`"
         },
         {
           "name": "comment",
+          "short": "Additional comments or notes",
           "type": "`$STRING`"
         },
         {
           "name": "country",
+          "short": "Country code",
           "type": "`$STRING`"
         },
         {
           "name": "created_at",
+          "short": "Timestamp when the restroom was added",
           "type": "`$STRING`"
         },
         {
           "name": "directions",
+          "short": "Directions to find the restroom",
           "type": "`$STRING`"
         },
         {
           "name": "distance",
+          "short": "Distance from search location in miles",
           "type": "`$NUMBER`"
         },
         {
           "name": "downvote",
+          "short": "Number of downvotes",
           "type": "`$INTEGER`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the restroom",
           "type": "`$INTEGER`"
         },
         {
           "name": "latitude",
+          "short": "Latitude coordinate",
           "type": "`$NUMBER`"
         },
         {
           "name": "longitude",
+          "short": "Longitude coordinate",
           "type": "`$NUMBER`"
         },
         {
           "name": "name",
+          "short": "Name of the location or establishment",
           "type": "`$STRING`"
         },
         {
           "name": "state",
+          "short": "State or province",
           "type": "`$STRING`"
         },
         {
           "name": "street",
+          "short": "Street address",
           "type": "`$STRING`"
         },
         {
           "name": "unisex",
+          "short": "Whether the restroom is unisex/gender-neutral",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "updated_at",
+          "short": "Timestamp when the restroom was last updated",
           "type": "`$STRING`"
         },
         {
           "name": "upvote",
+          "short": "Number of upvotes",
           "type": "`$INTEGER`"
         }
       ],

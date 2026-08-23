@@ -36,108 +36,126 @@
               "active": true,
               "name": "accessible",
               "req": false,
+              "short": "Whether the restroom is ADA accessible",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "changing_table",
               "req": false,
+              "short": "Whether a changing table is available",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "city",
               "req": false,
+              "short": "City name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "comment",
               "req": false,
+              "short": "Additional comments or notes",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "country",
               "req": false,
+              "short": "Country code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_at",
               "req": false,
+              "short": "Timestamp when the restroom was added",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "directions",
               "req": false,
+              "short": "Directions to find the restroom",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "distance",
               "req": false,
+              "short": "Distance from search location in miles",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "downvote",
               "req": false,
+              "short": "Number of downvotes",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the restroom",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "latitude",
               "req": false,
+              "short": "Latitude coordinate",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "longitude",
               "req": false,
+              "short": "Longitude coordinate",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the location or establishment",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "state",
               "req": false,
+              "short": "State or province",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "street",
               "req": false,
+              "short": "Street address",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "unisex",
               "req": false,
+              "short": "Whether the restroom is unisex/gender-neutral",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "updated_at",
               "req": false,
+              "short": "Timestamp when the restroom was last updated",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "upvote",
               "req": false,
+              "short": "Number of upvotes",
               "type": "`$INTEGER`"
             }
           ],
