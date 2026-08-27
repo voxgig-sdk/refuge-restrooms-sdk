@@ -42,6 +42,7 @@ class RefugeRestroomsConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
