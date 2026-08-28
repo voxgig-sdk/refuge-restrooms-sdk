@@ -27,24 +27,12 @@ export interface Restroom {
 }
 
 export interface RestroomListMatch {
-  accessible?: boolean
-  changing_table?: boolean
-  city?: string
-  comment?: string
-  country?: string
-  created_at?: string
-  directions?: string
-  distance?: number
-  downvote?: number
-  id?: number
-  latitude?: number
-  longitude?: number
-  name?: string
-  state?: string
-  street?: string
+  ada?: boolean
+  lat?: number
+  lng?: number
+  page?: number
+  per_page?: number
   unisex?: boolean
-  updated_at?: string
-  upvote?: number
 
   // Selects a custom action instead of the plain list:
   //   'by_location' | 'search'

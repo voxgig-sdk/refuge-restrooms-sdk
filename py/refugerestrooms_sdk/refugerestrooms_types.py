@@ -38,21 +38,9 @@ class Restroom(TypedDict, total=False):
 
 
 class RestroomListMatch(TypedDict, total=False):
-    accessible: bool
-    changing_table: bool
-    city: str
-    comment: str
-    country: str
-    created_at: str
-    directions: str
-    distance: float
-    downvote: int
-    id: int
-    latitude: float
-    longitude: float
-    name: str
-    state: str
-    street: str
+    ada: bool
+    lat: float
+    lng: float
+    page: int
+    per_page: int
     unisex: bool
-    updated_at: str
-    upvote: int

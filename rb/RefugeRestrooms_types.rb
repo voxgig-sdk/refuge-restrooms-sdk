@@ -87,78 +87,30 @@ Restroom = Struct.new(
 
 # Request payload for Restroom#list.
 #
-# @!attribute [rw] accessible
+# @!attribute [rw] ada
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] changing_table
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] city
-#   @return [String, nil]
-#
-# @!attribute [rw] comment
-#   @return [String, nil]
-#
-# @!attribute [rw] country
-#   @return [String, nil]
-#
-# @!attribute [rw] created_at
-#   @return [String, nil]
-#
-# @!attribute [rw] directions
-#   @return [String, nil]
-#
-# @!attribute [rw] distance
+# @!attribute [rw] lat
 #   @return [Float, nil]
 #
-# @!attribute [rw] downvote
+# @!attribute [rw] lng
+#   @return [Float, nil]
+#
+# @!attribute [rw] page
 #   @return [Integer, nil]
 #
-# @!attribute [rw] id
+# @!attribute [rw] per_page
 #   @return [Integer, nil]
-#
-# @!attribute [rw] latitude
-#   @return [Float, nil]
-#
-# @!attribute [rw] longitude
-#   @return [Float, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] state
-#   @return [String, nil]
-#
-# @!attribute [rw] street
-#   @return [String, nil]
 #
 # @!attribute [rw] unisex
 #   @return [Boolean, nil]
-#
-# @!attribute [rw] updated_at
-#   @return [String, nil]
-#
-# @!attribute [rw] upvote
-#   @return [Integer, nil]
 RestroomListMatch = Struct.new(
-  :accessible,
-  :changing_table,
-  :city,
-  :comment,
-  :country,
-  :created_at,
-  :directions,
-  :distance,
-  :downvote,
-  :id,
-  :latitude,
-  :longitude,
-  :name,
-  :state,
-  :street,
+  :ada,
+  :lat,
+  :lng,
+  :page,
+  :per_page,
   :unisex,
-  :updated_at,
-  :upvote,
   keyword_init: true
 )
 

@@ -36,24 +36,12 @@ type Restroom struct {
 
 // RestroomListMatch is the typed request payload for Restroom.ListTyped.
 type RestroomListMatch struct {
-	Accessible *bool `json:"accessible,omitempty"`
-	ChangingTable *bool `json:"changing_table,omitempty"`
-	City *string `json:"city,omitempty"`
-	Comment *string `json:"comment,omitempty"`
-	Country *string `json:"country,omitempty"`
-	CreatedAt *string `json:"created_at,omitempty"`
-	Directions *string `json:"directions,omitempty"`
-	Distance *float64 `json:"distance,omitempty"`
-	Downvote *int `json:"downvote,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Latitude *float64 `json:"latitude,omitempty"`
-	Longitude *float64 `json:"longitude,omitempty"`
-	Name *string `json:"name,omitempty"`
-	State *string `json:"state,omitempty"`
-	Street *string `json:"street,omitempty"`
+	Ada *bool `json:"ada,omitempty"`
+	Lat *float64 `json:"lat,omitempty"`
+	Lng *float64 `json:"lng,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PerPage *int `json:"per_page,omitempty"`
 	Unisex *bool `json:"unisex,omitempty"`
-	UpdatedAt *string `json:"updated_at,omitempty"`
-	Upvote *int `json:"upvote,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

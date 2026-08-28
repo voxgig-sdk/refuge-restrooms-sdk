@@ -38,23 +38,11 @@ class Restroom
 /** Request payload for Restroom#list. */
 class RestroomListMatch
 {
-    public ?bool $accessible = null;
-    public ?bool $changing_table = null;
-    public ?string $city = null;
-    public ?string $comment = null;
-    public ?string $country = null;
-    public ?string $created_at = null;
-    public ?string $directions = null;
-    public ?float $distance = null;
-    public ?int $downvote = null;
-    public ?int $id = null;
-    public ?float $latitude = null;
-    public ?float $longitude = null;
-    public ?string $name = null;
-    public ?string $state = null;
-    public ?string $street = null;
+    public ?bool $ada = null;
+    public ?float $lat = null;
+    public ?float $lng = null;
+    public ?int $page = null;
+    public ?int $per_page = null;
     public ?bool $unisex = null;
-    public ?string $updated_at = null;
-    public ?int $upvote = null;
 }
 

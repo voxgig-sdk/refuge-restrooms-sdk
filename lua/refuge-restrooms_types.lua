@@ -27,24 +27,12 @@
 ---@field upvote? number
 
 ---@class RestroomListMatch
----@field accessible? boolean
----@field changing_table? boolean
----@field city? string
----@field comment? string
----@field country? string
----@field created_at? string
----@field directions? string
----@field distance? number
----@field downvote? number
----@field id? number
----@field latitude? number
----@field longitude? number
----@field name? string
----@field state? string
----@field street? string
+---@field ada? boolean
+---@field lat? number
+---@field lng? number
+---@field page? number
+---@field per_page? number
 ---@field unisex? boolean
----@field updated_at? string
----@field upvote? number
 
 local M = {}
 
