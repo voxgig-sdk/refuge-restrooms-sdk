@@ -36,6 +36,7 @@ main: kit: entity: restroom: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "created_at"
       req: false
       short: "Timestamp when the restroom was added"
@@ -48,6 +49,7 @@ main: kit: entity: restroom: {
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "distance"
       req: false
       short: "Distance from search location in miles"
@@ -66,12 +68,14 @@ main: kit: entity: restroom: {
       type: "`$INTEGER`"
     }
     {
+      format: "double"
       name: "latitude"
       req: false
       short: "Latitude coordinate"
       type: "`$NUMBER`"
     }
     {
+      format: "double"
       name: "longitude"
       req: false
       short: "Longitude coordinate"
@@ -102,6 +106,7 @@ main: kit: entity: restroom: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "date-time"
       name: "updated_at"
       req: false
       short: "Timestamp when the restroom was last updated"
@@ -178,9 +183,13 @@ main: kit: entity: restroom: {
           }
           method: "GET"
           orig: "/v1/restrooms"
-          parts: [
-            "v1"
-            "restrooms"
+          segments: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "restrooms"
+            }
           ]
           select: {
             exist: [
@@ -218,10 +227,16 @@ main: kit: entity: restroom: {
           }
           method: "GET"
           orig: "/v1/restrooms/by_location"
-          parts: [
-            "v1"
-            "restrooms"
-            "by_location"
+          segments: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "restrooms"
+            }
+            {
+              lit: "by_location"
+            }
           ]
           select: {
             "$action": "by_location"
@@ -250,10 +265,16 @@ main: kit: entity: restroom: {
           }
           method: "GET"
           orig: "/v1/restrooms/search"
-          parts: [
-            "v1"
-            "restrooms"
-            "search"
+          segments: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "restrooms"
+            }
+            {
+              lit: "search"
+            }
           ]
           select: {
             "$action": "search"

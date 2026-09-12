@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -92,6 +103,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "date-time",
           "name": "created_at",
           "short": "Timestamp when the restroom was added",
           "type": "`$STRING`"
@@ -102,6 +114,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "double",
           "name": "distance",
           "short": "Distance from search location in miles",
           "type": "`$NUMBER`"
@@ -117,11 +130,13 @@ class Config {
           "type": "`$INTEGER`"
         },
         {
+          "format": "double",
           "name": "latitude",
           "short": "Latitude coordinate",
           "type": "`$NUMBER`"
         },
         {
+          "format": "double",
           "name": "longitude",
           "short": "Longitude coordinate",
           "type": "`$NUMBER`"
@@ -147,6 +162,7 @@ class Config {
           "type": "`$BOOLEAN`"
         },
         {
+          "format": "date-time",
           "name": "updated_at",
           "short": "Timestamp when the restroom was last updated",
           "type": "`$STRING`"
@@ -157,6 +173,10 @@ class Config {
           "type": "`$INTEGER`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "restroom",
       "op": {
         "list": {
@@ -211,9 +231,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/v1/restrooms",
-              "parts": [
-                "v1",
-                "restrooms"
+              "segments": [
+                {
+                  "lit": "v1"
+                },
+                {
+                  "lit": "restrooms"
+                }
               ],
               "select": {
                 "exist": [
@@ -228,7 +252,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "v1",
+                "restrooms"
+              ]
             },
             {
               "args": {
@@ -252,10 +280,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/v1/restrooms/by_location",
-              "parts": [
-                "v1",
-                "restrooms",
-                "by_location"
+              "segments": [
+                {
+                  "lit": "v1"
+                },
+                {
+                  "lit": "restrooms"
+                },
+                {
+                  "lit": "by_location"
+                }
               ],
               "select": {
                 "$action": "by_location",
@@ -267,7 +301,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "v1",
+                "restrooms",
+                "by_location"
+              ]
             },
             {
               "args": {
@@ -285,10 +324,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/v1/restrooms/search",
-              "parts": [
-                "v1",
-                "restrooms",
-                "search"
+              "segments": [
+                {
+                  "lit": "v1"
+                },
+                {
+                  "lit": "restrooms"
+                },
+                {
+                  "lit": "search"
+                }
               ],
               "select": {
                 "$action": "search",
@@ -299,7 +344,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "v1",
+                "restrooms",
+                "search"
+              ]
             }
           ]
         }
@@ -315,6 +365,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

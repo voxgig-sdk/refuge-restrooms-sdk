@@ -1,6 +1,14 @@
 # RefugeRestrooms SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -78,6 +86,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "created_at",
             "short": "Timestamp when the restroom was added",
             "type": "`$STRING`",
@@ -88,6 +97,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "distance",
             "short": "Distance from search location in miles",
             "type": "`$NUMBER`",
@@ -103,11 +113,13 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "double",
             "name": "latitude",
             "short": "Latitude coordinate",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "longitude",
             "short": "Longitude coordinate",
             "type": "`$NUMBER`",
@@ -133,6 +145,7 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "date-time",
             "name": "updated_at",
             "short": "Timestamp when the restroom was last updated",
             "type": "`$STRING`",
@@ -143,6 +156,10 @@ def make_config():
             "type": "`$INTEGER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "restroom",
         "op": {
           "list": {
@@ -197,9 +214,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/v1/restrooms",
-                "parts": [
-                  "v1",
-                  "restrooms",
+                "segments": [
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "restrooms",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -215,6 +236,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "v1",
+                  "restrooms",
+                ],
               },
               {
                 "args": {
@@ -238,10 +263,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/v1/restrooms/by_location",
-                "parts": [
-                  "v1",
-                  "restrooms",
-                  "by_location",
+                "segments": [
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "restrooms",
+                  },
+                  {
+                    "lit": "by_location",
+                  },
                 ],
                 "select": {
                   "$action": "by_location",
@@ -254,6 +285,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "v1",
+                  "restrooms",
+                  "by_location",
+                ],
               },
               {
                 "args": {
@@ -271,10 +307,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/v1/restrooms/search",
-                "parts": [
-                  "v1",
-                  "restrooms",
-                  "search",
+                "segments": [
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "restrooms",
+                  },
+                  {
+                    "lit": "search",
+                  },
                 ],
                 "select": {
                   "$action": "search",
@@ -286,6 +328,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "v1",
+                  "restrooms",
+                  "search",
+                ],
               },
             ],
           },

@@ -61,6 +61,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "created_at",
 						"short": "Timestamp when the restroom was added",
 						"type": "`$STRING`",
@@ -71,6 +72,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "double",
 						"name": "distance",
 						"short": "Distance from search location in miles",
 						"type": "`$NUMBER`",
@@ -86,11 +88,13 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "double",
 						"name": "latitude",
 						"short": "Latitude coordinate",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "double",
 						"name": "longitude",
 						"short": "Longitude coordinate",
 						"type": "`$NUMBER`",
@@ -116,6 +120,7 @@ func MakeConfig() map[string]any {
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "updated_at",
 						"short": "Timestamp when the restroom was last updated",
 						"type": "`$STRING`",
@@ -125,6 +130,10 @@ func MakeConfig() map[string]any {
 						"short": "Number of upvotes",
 						"type": "`$INTEGER`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "restroom",
 				"op": map[string]any{
@@ -180,9 +189,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/restrooms",
-								"parts": []any{
-									"v1",
-									"restrooms",
+								"segments": []any{
+									map[string]any{
+										"lit": "v1",
+									},
+									map[string]any{
+										"lit": "restrooms",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -197,6 +210,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"v1",
+									"restrooms",
 								},
 							},
 							map[string]any{
@@ -221,10 +238,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/restrooms/by_location",
-								"parts": []any{
-									"v1",
-									"restrooms",
-									"by_location",
+								"segments": []any{
+									map[string]any{
+										"lit": "v1",
+									},
+									map[string]any{
+										"lit": "restrooms",
+									},
+									map[string]any{
+										"lit": "by_location",
+									},
 								},
 								"select": map[string]any{
 									"$action": "by_location",
@@ -236,6 +259,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"v1",
+									"restrooms",
+									"by_location",
 								},
 							},
 							map[string]any{
@@ -254,10 +282,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/restrooms/search",
-								"parts": []any{
-									"v1",
-									"restrooms",
-									"search",
+								"segments": []any{
+									map[string]any{
+										"lit": "v1",
+									},
+									map[string]any{
+										"lit": "restrooms",
+									},
+									map[string]any{
+										"lit": "search",
+									},
 								},
 								"select": map[string]any{
 									"$action": "search",
@@ -269,6 +303,11 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{
+									"v1",
+									"restrooms",
+									"search",
+								},
 							},
 						},
 					},
@@ -279,6 +318,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

@@ -69,6 +69,7 @@ module RefugeRestroomsConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "date-time",
               "name" => "created_at",
               "short" => "Timestamp when the restroom was added",
               "type" => "`$STRING`",
@@ -79,6 +80,7 @@ module RefugeRestroomsConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "double",
               "name" => "distance",
               "short" => "Distance from search location in miles",
               "type" => "`$NUMBER`",
@@ -94,11 +96,13 @@ module RefugeRestroomsConfig
               "type" => "`$INTEGER`",
             },
             {
+              "format" => "double",
               "name" => "latitude",
               "short" => "Latitude coordinate",
               "type" => "`$NUMBER`",
             },
             {
+              "format" => "double",
               "name" => "longitude",
               "short" => "Longitude coordinate",
               "type" => "`$NUMBER`",
@@ -124,6 +128,7 @@ module RefugeRestroomsConfig
               "type" => "`$BOOLEAN`",
             },
             {
+              "format" => "date-time",
               "name" => "updated_at",
               "short" => "Timestamp when the restroom was last updated",
               "type" => "`$STRING`",
@@ -134,6 +139,10 @@ module RefugeRestroomsConfig
               "type" => "`$INTEGER`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "restroom",
           "op" => {
             "list" => {
@@ -188,9 +197,13 @@ module RefugeRestroomsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v1/restrooms",
-                  "parts" => [
-                    "v1",
-                    "restrooms",
+                  "segments" => [
+                    {
+                      "lit" => "v1",
+                    },
+                    {
+                      "lit" => "restrooms",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -206,6 +219,10 @@ module RefugeRestroomsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "v1",
+                    "restrooms",
+                  ],
                 },
                 {
                   "args" => {
@@ -229,10 +246,16 @@ module RefugeRestroomsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v1/restrooms/by_location",
-                  "parts" => [
-                    "v1",
-                    "restrooms",
-                    "by_location",
+                  "segments" => [
+                    {
+                      "lit" => "v1",
+                    },
+                    {
+                      "lit" => "restrooms",
+                    },
+                    {
+                      "lit" => "by_location",
+                    },
                   ],
                   "select" => {
                     "$action" => "by_location",
@@ -245,6 +268,11 @@ module RefugeRestroomsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "v1",
+                    "restrooms",
+                    "by_location",
+                  ],
                 },
                 {
                   "args" => {
@@ -262,10 +290,16 @@ module RefugeRestroomsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v1/restrooms/search",
-                  "parts" => [
-                    "v1",
-                    "restrooms",
-                    "search",
+                  "segments" => [
+                    {
+                      "lit" => "v1",
+                    },
+                    {
+                      "lit" => "restrooms",
+                    },
+                    {
+                      "lit" => "search",
+                    },
                   ],
                   "select" => {
                     "$action" => "search",
@@ -277,6 +311,11 @@ module RefugeRestroomsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "v1",
+                    "restrooms",
+                    "search",
+                  ],
                 },
               ],
             },
