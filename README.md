@@ -105,7 +105,7 @@ local results, err = client:Restroom():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/refuge-restrooms` | publish pending — [install from git tag](https://github.com/voxgig-sdk/refuge-restrooms-sdk/releases) |
+| TypeScript | `@voxgig-sdk/refuge-restrooms-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/refuge-restrooms-sdk/releases) |
 | Python | `voxgig-sdk-refuge-restrooms` | publish pending — [install from git tag](https://github.com/voxgig-sdk/refuge-restrooms-sdk/releases) |
 | PHP | `voxgig-sdk/refuge-restrooms` | publish pending — [install from git tag](https://github.com/voxgig-sdk/refuge-restrooms-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/refuge-restrooms-sdk/go` | `go get github.com/voxgig-sdk/refuge-restrooms-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Restroom():list()
 ### TypeScript
 
 ```ts
-import { RefugeRestroomsSDK } from '@voxgig-sdk/refuge-restrooms'
+import { RefugeRestroomsSDK } from '@voxgig-sdk/refuge-restrooms-sdk'
 
 const client = new RefugeRestroomsSDK()
 
