@@ -1,12 +1,18 @@
 # RefugeRestrooms SDK feature factory
 
 from refugerestrooms_sdk.feature.base_feature import RefugeRestroomsBaseFeature
+from refugerestrooms_sdk.feature.ratelimit_feature import RefugeRestroomsRatelimitFeature
+from refugerestrooms_sdk.feature.retry_feature import RefugeRestroomsRetryFeature
 from refugerestrooms_sdk.feature.test_feature import RefugeRestroomsTestFeature
+from refugerestrooms_sdk.feature.timeout_feature import RefugeRestroomsTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: RefugeRestroomsBaseFeature(),
+    "ratelimit": lambda: RefugeRestroomsRatelimitFeature(),
+    "retry": lambda: RefugeRestroomsRetryFeature(),
     "test": lambda: RefugeRestroomsTestFeature(),
+    "timeout": lambda: RefugeRestroomsTimeoutFeature(),
 }
 
 
