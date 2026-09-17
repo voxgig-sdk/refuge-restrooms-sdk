@@ -105,12 +105,12 @@ local results, err = client:Restroom():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/refuge-restrooms-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/refuge-restrooms-sdk/releases) |
-| Python | `voxgig-sdk-refuge-restrooms` | publish pending — [install from git tag](https://github.com/voxgig-sdk/refuge-restrooms-sdk/releases) |
-| PHP | `voxgig-sdk/refuge-restrooms` | publish pending — [install from git tag](https://github.com/voxgig-sdk/refuge-restrooms-sdk/releases) |
+| TypeScript | `@voxgig-sdk/refuge-restrooms-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/refuge-restrooms-sdk/tags) |
+| Python | `voxgig-sdk-refuge-restrooms` | publish pending — [install from git tag](https://github.com/voxgig-sdk/refuge-restrooms-sdk/tags) |
+| PHP | `voxgig-sdk/refuge-restrooms` | publish pending — [install from git tag](https://github.com/voxgig-sdk/refuge-restrooms-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/refuge-restrooms-sdk/go` | `go get github.com/voxgig-sdk/refuge-restrooms-sdk/go@latest` |
-| Ruby | `voxgig-sdk-refuge-restrooms` | publish pending — [install from git tag](https://github.com/voxgig-sdk/refuge-restrooms-sdk/releases) |
-| Lua | `voxgig-sdk-refuge-restrooms` | publish pending — [install from git tag](https://github.com/voxgig-sdk/refuge-restrooms-sdk/releases) |
+| Ruby | `voxgig-sdk-refuge-restrooms` | publish pending — [install from git tag](https://github.com/voxgig-sdk/refuge-restrooms-sdk/tags) |
+| Lua | `voxgig-sdk-refuge-restrooms` | publish pending — [install from git tag](https://github.com/voxgig-sdk/refuge-restrooms-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/refuge-restrooms-sdk/go-cli` | `go install github.com/voxgig-sdk/refuge-restrooms-sdk/go-cli/cmd/refuge-restrooms@latest` |
 | Go MCP server | `github.com/voxgig-sdk/refuge-restrooms-sdk/go-mcp` | `go get github.com/voxgig-sdk/refuge-restrooms-sdk/go-mcp@latest` |
 
