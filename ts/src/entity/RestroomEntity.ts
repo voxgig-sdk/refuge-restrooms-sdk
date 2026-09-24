@@ -19,7 +19,6 @@ import type {
   RestroomListMatch,
 } from '../RefugeRestroomsTypes'
 
-// TODO: needs Entity superclass
 class RestroomEntity extends RefugeRestroomsEntityBase<Restroom> {
 
   constructor(client: RefugeRestroomsSDK, entopts: any) {

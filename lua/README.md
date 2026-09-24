@@ -43,7 +43,7 @@ local restrooms, err = client:Restroom():list()
 if err then error(err) end
 
 for _, item in ipairs(restrooms) do
-  print(item["id"], item["city"])
+  print(item["id"])
 end
 ```
 

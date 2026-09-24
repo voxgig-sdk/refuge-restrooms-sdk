@@ -1,7 +1,7 @@
 // Typed models for the RefugeRestrooms SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,24 +14,6 @@ import (
 
 // Restroom is the typed data model for the restroom entity.
 type Restroom struct {
-	Accessible *bool `json:"accessible,omitempty"`
-	ChangingTable *bool `json:"changing_table,omitempty"`
-	City *string `json:"city,omitempty"`
-	Comment *string `json:"comment,omitempty"`
-	Country *string `json:"country,omitempty"`
-	CreatedAt *string `json:"created_at,omitempty"`
-	Directions *string `json:"directions,omitempty"`
-	Distance *float64 `json:"distance,omitempty"`
-	Downvote *int `json:"downvote,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Latitude *float64 `json:"latitude,omitempty"`
-	Longitude *float64 `json:"longitude,omitempty"`
-	Name *string `json:"name,omitempty"`
-	State *string `json:"state,omitempty"`
-	Street *string `json:"street,omitempty"`
-	Unisex *bool `json:"unisex,omitempty"`
-	UpdatedAt *string `json:"updated_at,omitempty"`
-	Upvote *int `json:"upvote,omitempty"`
 }
 
 // RestroomListMatch is the typed request payload for Restroom.ListTyped.

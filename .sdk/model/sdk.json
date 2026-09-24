@@ -24,145 +24,229 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "restroom": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "accessible",
-              "req": false,
-              "short": "Whether the restroom is ADA accessible",
-              "type": "`$BOOLEAN`"
+          "fields": {
+            "accessible": {
+              "a": true,
+              "h": "Accessible",
+              "n": "accessible",
+              "r": false,
+              "sh": "Whether the restroom is ADA accessible",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "changing_table",
-              "req": false,
-              "short": "Whether a changing table is available",
-              "type": "`$BOOLEAN`"
+            "changing_table": {
+              "a": true,
+              "h": "Changing Table",
+              "n": "changing_table",
+              "r": false,
+              "sh": "Whether a changing table is available",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "city",
-              "req": false,
-              "short": "City name",
-              "type": "`$STRING`"
+            "city": {
+              "a": true,
+              "h": "City",
+              "n": "city",
+              "r": false,
+              "sh": "City name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "comment",
-              "req": false,
-              "short": "Additional comments or notes",
-              "type": "`$STRING`"
+            "comment": {
+              "a": true,
+              "h": "Comment",
+              "n": "comment",
+              "r": false,
+              "sh": "Additional comments or notes",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "country",
-              "req": false,
-              "short": "Country code",
-              "type": "`$STRING`"
+            "country": {
+              "a": true,
+              "h": "Country",
+              "n": "country",
+              "r": false,
+              "sh": "Country code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "created_at",
-              "req": false,
-              "short": "Timestamp when the restroom was added",
-              "type": "`$STRING`"
+            "created_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Created At",
+              "n": "created_at",
+              "r": false,
+              "sh": "Timestamp when the restroom was added",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "directions",
-              "req": false,
-              "short": "Directions to find the restroom",
-              "type": "`$STRING`"
+            "directions": {
+              "a": true,
+              "h": "Directions",
+              "n": "directions",
+              "r": false,
+              "sh": "Directions to find the restroom",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "double",
-              "name": "distance",
-              "req": false,
-              "short": "Distance from search location in miles",
-              "type": "`$NUMBER`"
+            "distance": {
+              "a": true,
+              "fo": "double",
+              "h": "Distance",
+              "n": "distance",
+              "r": false,
+              "sh": "Distance from search location in miles",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "downvote",
-              "req": false,
-              "short": "Number of downvotes",
-              "type": "`$INTEGER`"
+            "downvote": {
+              "a": true,
+              "h": "Downvote",
+              "n": "downvote",
+              "r": false,
+              "sh": "Number of downvotes",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique identifier for the restroom",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique identifier for the restroom",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "double",
-              "name": "latitude",
-              "req": false,
-              "short": "Latitude coordinate",
-              "type": "`$NUMBER`"
+            "latitude": {
+              "a": true,
+              "fo": "double",
+              "h": "Latitude",
+              "n": "latitude",
+              "r": false,
+              "sh": "Latitude coordinate",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "format": "double",
-              "name": "longitude",
-              "req": false,
-              "short": "Longitude coordinate",
-              "type": "`$NUMBER`"
+            "longitude": {
+              "a": true,
+              "fo": "double",
+              "h": "Longitude",
+              "n": "longitude",
+              "r": false,
+              "sh": "Longitude coordinate",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "Name of the location or establishment",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "Name of the location or establishment",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "state",
-              "req": false,
-              "short": "State or province",
-              "type": "`$STRING`"
+            "state": {
+              "a": true,
+              "h": "State",
+              "n": "state",
+              "r": false,
+              "sh": "State or province",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "street",
-              "req": false,
-              "short": "Street address",
-              "type": "`$STRING`"
+            "street": {
+              "a": true,
+              "h": "Street",
+              "n": "street",
+              "r": false,
+              "sh": "Street address",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "unisex",
-              "req": false,
-              "short": "Whether the restroom is unisex/gender-neutral",
-              "type": "`$BOOLEAN`"
+            "unisex": {
+              "a": true,
+              "h": "Unisex",
+              "n": "unisex",
+              "r": false,
+              "sh": "Whether the restroom is unisex/gender-neutral",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "updated_at",
-              "req": false,
-              "short": "Timestamp when the restroom was last updated",
-              "type": "`$STRING`"
+            "updated_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Updated At",
+              "n": "updated_at",
+              "r": false,
+              "sh": "Timestamp when the restroom was last updated",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "upvote",
-              "req": false,
-              "short": "Number of upvotes",
-              "type": "`$INTEGER`"
+            "upvote": {
+              "a": true,
+              "h": "Upvote",
+              "n": "upvote",
+              "r": false,
+              "sh": "Number of upvotes",
+              "t": "`$INTEGER`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -174,81 +258,72 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /v1/restrooms",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "ada",
-                        "orig": "ada",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "k": "query",
+                        "n": "ada",
+                        "or": "ada",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "example": 40.7128,
-                        "kind": "query",
-                        "name": "lat",
-                        "orig": "lat",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 40.7128,
+                        "k": "query",
+                        "n": "lat",
+                        "or": "lat",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": -74.006,
-                        "kind": "query",
-                        "name": "lng",
-                        "orig": "lng",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": -74.006,
+                        "k": "query",
+                        "n": "lng",
+                        "or": "lng",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": 1,
-                        "kind": "query",
-                        "name": "page",
-                        "orig": "page",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 1,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 10,
-                        "kind": "query",
-                        "name": "per_page",
-                        "orig": "per_page",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 10,
+                        "k": "query",
+                        "n": "per_page",
+                        "or": "per_page",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "unisex",
-                        "orig": "unisex",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "k": "query",
+                        "n": "unisex",
+                        "or": "unisex",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /v1/restrooms",
-                    "json": "{\"operationId\":\"searchRestrooms\",\"parameters\":[{\"description\":\"Latitude coordinate for location-based search\",\"in\":\"query\",\"name\":\"lat\",\"required\":false,\"schema\":{\"example\":40.7128,\"format\":\"double\",\"type\":\"number\"}},{\"description\":\"Longitude coordinate for location-based search\",\"in\":\"query\",\"name\":\"lng\",\"required\":false,\"schema\":{\"example\":-74.006,\"format\":\"double\",\"type\":\"number\"}},{\"description\":\"Filter for ADA accessible restrooms only\",\"in\":\"query\",\"name\":\"ada\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Filter for unisex restrooms only\",\"in\":\"query\",\"name\":\"unisex\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Page number for pagination\",\"in\":\"query\",\"name\":\"page\",\"required\":false,\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Number of results per page\",\"in\":\"query\",\"name\":\"per_page\",\"required\":false,\"schema\":{\"default\":10,\"maximum\":100,\"minimum\":1,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":[{\"accessible\":true,\"changing_table\":true,\"city\":\"New York\",\"comment\":\"Clean and well-maintained\",\"country\":\"US\",\"created_at\":\"2023-01-15T10:30:00Z\",\"directions\":\"On the first floor near the entrance\",\"distance\":0.5,\"downvote\":0,\"id\":1234,\"latitude\":40.7128,\"longitude\":-74.006,\"name\":\"Public Library Downtown\",\"state\":\"NY\",\"street\":\"123 Main Street\",\"unisex\":true,\"updated_at\":\"2023-06-20T14:45:00Z\",\"upvote\":15}],\"schema\":{\"items\":{\"properties\":{\"accessible\":{\"description\":\"Whether the restroom is ADA accessible\",\"type\":\"boolean\"},\"changing_table\":{\"description\":\"Whether a changing table is available\",\"type\":\"boolean\"},\"city\":{\"description\":\"City name\",\"type\":\"string\"},\"comment\":{\"description\":\"Additional comments or notes\",\"nullable\":true,\"type\":\"string\"},\"country\":{\"description\":\"Country code\",\"type\":\"string\"},\"created_at\":{\"description\":\"Timestamp when the restroom was added\",\"format\":\"date-time\",\"type\":\"string\"},\"directions\":{\"description\":\"Directions to find the restroom\",\"nullable\":true,\"type\":\"string\"},\"distance\":{\"description\":\"Distance from search location in miles\",\"format\":\"double\",\"nullable\":true,\"type\":\"number\"},\"downvote\":{\"description\":\"Number of downvotes\",\"type\":\"integer\"},\"id\":{\"description\":\"Unique identifier for the restroom\",\"type\":\"integer\"},\"latitude\":{\"description\":\"Latitude coordinate\",\"format\":\"double\",\"type\":\"number\"},\"longitude\":{\"description\":\"Longitude coordinate\",\"format\":\"double\",\"type\":\"number\"},\"name\":{\"description\":\"Name of the location or establishment\",\"type\":\"string\"},\"state\":{\"description\":\"State or province\",\"type\":\"string\"},\"street\":{\"description\":\"Street address\",\"type\":\"string\"},\"unisex\":{\"description\":\"Whether the restroom is unisex/gender-neutral\",\"type\":\"boolean\"},\"updated_at\":{\"description\":\"Timestamp when the restroom was last updated\",\"format\":\"date-time\",\"type\":\"string\"},\"upvote\":{\"description\":\"Number of upvotes\",\"type\":\"integer\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with list of restrooms\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/v1/restrooms",
-                  "segments": [
-                    {
-                      "lit": "v1"
-                    },
-                    {
-                      "lit": "restrooms"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/v1/restrooms",
+                  "q": {
                     "exist": [
                       "ada",
                       "lat",
@@ -258,43 +333,59 @@
                       "unisex"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "restrooms"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /v1/restrooms/by_location",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "lat",
-                        "orig": "lat",
-                        "reqd": true,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "lat",
+                        "or": "lat",
+                        "r": true,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "lng",
-                        "orig": "lng",
-                        "reqd": true,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "lng",
+                        "or": "lng",
+                        "r": true,
+                        "t": "`$NUMBER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /v1/restrooms/by_location",
-                    "json": "{\"operationId\":\"getRestroomsByLocation\",\"parameters\":[{\"description\":\"Latitude coordinate\",\"in\":\"query\",\"name\":\"lat\",\"required\":true,\"schema\":{\"format\":\"double\",\"type\":\"number\"}},{\"description\":\"Longitude coordinate\",\"in\":\"query\",\"name\":\"lng\",\"required\":true,\"schema\":{\"format\":\"double\",\"type\":\"number\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"accessible\":{\"description\":\"Whether the restroom is ADA accessible\",\"type\":\"boolean\"},\"changing_table\":{\"description\":\"Whether a changing table is available\",\"type\":\"boolean\"},\"city\":{\"description\":\"City name\",\"type\":\"string\"},\"comment\":{\"description\":\"Additional comments or notes\",\"nullable\":true,\"type\":\"string\"},\"country\":{\"description\":\"Country code\",\"type\":\"string\"},\"created_at\":{\"description\":\"Timestamp when the restroom was added\",\"format\":\"date-time\",\"type\":\"string\"},\"directions\":{\"description\":\"Directions to find the restroom\",\"nullable\":true,\"type\":\"string\"},\"distance\":{\"description\":\"Distance from search location in miles\",\"format\":\"double\",\"nullable\":true,\"type\":\"number\"},\"downvote\":{\"description\":\"Number of downvotes\",\"type\":\"integer\"},\"id\":{\"description\":\"Unique identifier for the restroom\",\"type\":\"integer\"},\"latitude\":{\"description\":\"Latitude coordinate\",\"format\":\"double\",\"type\":\"number\"},\"longitude\":{\"description\":\"Longitude coordinate\",\"format\":\"double\",\"type\":\"number\"},\"name\":{\"description\":\"Name of the location or establishment\",\"type\":\"string\"},\"state\":{\"description\":\"State or province\",\"type\":\"string\"},\"street\":{\"description\":\"Street address\",\"type\":\"string\"},\"unisex\":{\"description\":\"Whether the restroom is unisex/gender-neutral\",\"type\":\"boolean\"},\"updated_at\":{\"description\":\"Timestamp when the restroom was last updated\",\"format\":\"date-time\",\"type\":\"string\"},\"upvote\":{\"description\":\"Number of upvotes\",\"type\":\"integer\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"List of nearby restrooms\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/v1/restrooms/by_location",
+                  "q": {
+                    "$action": "by_location",
+                    "exist": [
+                      "lat",
+                      "lng"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/v1/restrooms/by_location",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "v1"
                     },
@@ -305,43 +396,42 @@
                       "lit": "by_location"
                     }
                   ],
-                  "select": {
-                    "$action": "by_location",
-                    "exist": [
-                      "lat",
-                      "lng"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /v1/restrooms/search",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "New York, NY",
-                        "kind": "query",
-                        "name": "query",
-                        "orig": "query",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "New York, NY",
+                        "k": "query",
+                        "n": "query",
+                        "or": "query",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /v1/restrooms/search",
-                    "json": "{\"operationId\":\"searchRestroomsByAddress\",\"parameters\":[{\"description\":\"Address or location query string\",\"in\":\"query\",\"name\":\"query\",\"required\":true,\"schema\":{\"example\":\"New York, NY\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"accessible\":{\"description\":\"Whether the restroom is ADA accessible\",\"type\":\"boolean\"},\"changing_table\":{\"description\":\"Whether a changing table is available\",\"type\":\"boolean\"},\"city\":{\"description\":\"City name\",\"type\":\"string\"},\"comment\":{\"description\":\"Additional comments or notes\",\"nullable\":true,\"type\":\"string\"},\"country\":{\"description\":\"Country code\",\"type\":\"string\"},\"created_at\":{\"description\":\"Timestamp when the restroom was added\",\"format\":\"date-time\",\"type\":\"string\"},\"directions\":{\"description\":\"Directions to find the restroom\",\"nullable\":true,\"type\":\"string\"},\"distance\":{\"description\":\"Distance from search location in miles\",\"format\":\"double\",\"nullable\":true,\"type\":\"number\"},\"downvote\":{\"description\":\"Number of downvotes\",\"type\":\"integer\"},\"id\":{\"description\":\"Unique identifier for the restroom\",\"type\":\"integer\"},\"latitude\":{\"description\":\"Latitude coordinate\",\"format\":\"double\",\"type\":\"number\"},\"longitude\":{\"description\":\"Longitude coordinate\",\"format\":\"double\",\"type\":\"number\"},\"name\":{\"description\":\"Name of the location or establishment\",\"type\":\"string\"},\"state\":{\"description\":\"State or province\",\"type\":\"string\"},\"street\":{\"description\":\"Street address\",\"type\":\"string\"},\"unisex\":{\"description\":\"Whether the restroom is unisex/gender-neutral\",\"type\":\"boolean\"},\"updated_at\":{\"description\":\"Timestamp when the restroom was last updated\",\"format\":\"date-time\",\"type\":\"string\"},\"upvote\":{\"description\":\"Number of upvotes\",\"type\":\"integer\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"List of restrooms matching the search\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/v1/restrooms/search",
+                  "q": {
+                    "$action": "search",
+                    "exist": [
+                      "query"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/v1/restrooms/search",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "v1"
                     },
@@ -352,13 +442,7 @@
                       "lit": "search"
                     }
                   ],
-                  "select": {
-                    "$action": "search",
-                    "exist": [
-                      "query"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -787,13 +871,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {

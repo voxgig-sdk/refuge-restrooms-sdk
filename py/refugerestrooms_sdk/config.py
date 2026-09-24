@@ -116,98 +116,116 @@ def make_config():
         "fields": [
           {
             "name": "accessible",
-            "short": "Whether the restroom is ADA accessible",
+            "title": "Accessible",
             "type": "`$BOOLEAN`",
+            "short": "Whether the restroom is ADA accessible",
           },
           {
             "name": "changing_table",
-            "short": "Whether a changing table is available",
+            "title": "Changing Table",
             "type": "`$BOOLEAN`",
+            "short": "Whether a changing table is available",
           },
           {
             "name": "city",
-            "short": "City name",
+            "title": "City",
             "type": "`$STRING`",
+            "short": "City name",
           },
           {
             "name": "comment",
-            "short": "Additional comments or notes",
+            "title": "Comment",
             "type": "`$STRING`",
+            "short": "Additional comments or notes",
           },
           {
             "name": "country",
-            "short": "Country code",
+            "title": "Country",
             "type": "`$STRING`",
+            "short": "Country code",
           },
           {
-            "format": "date-time",
             "name": "created_at",
-            "short": "Timestamp when the restroom was added",
+            "title": "Created At",
             "type": "`$STRING`",
+            "short": "Timestamp when the restroom was added",
+            "format": "date-time",
           },
           {
             "name": "directions",
-            "short": "Directions to find the restroom",
+            "title": "Directions",
             "type": "`$STRING`",
+            "short": "Directions to find the restroom",
           },
           {
-            "format": "double",
             "name": "distance",
-            "short": "Distance from search location in miles",
+            "title": "Distance",
             "type": "`$NUMBER`",
+            "short": "Distance from search location in miles",
+            "format": "double",
           },
           {
             "name": "downvote",
-            "short": "Number of downvotes",
+            "title": "Downvote",
             "type": "`$INTEGER`",
+            "short": "Number of downvotes",
           },
           {
             "name": "id",
-            "short": "Unique identifier for the restroom",
+            "title": "Id",
             "type": "`$INTEGER`",
+            "short": "Unique identifier for the restroom",
           },
           {
-            "format": "double",
             "name": "latitude",
-            "short": "Latitude coordinate",
+            "title": "Latitude",
             "type": "`$NUMBER`",
+            "short": "Latitude coordinate",
+            "format": "double",
           },
           {
-            "format": "double",
             "name": "longitude",
-            "short": "Longitude coordinate",
+            "title": "Longitude",
             "type": "`$NUMBER`",
+            "short": "Longitude coordinate",
+            "format": "double",
           },
           {
             "name": "name",
-            "short": "Name of the location or establishment",
+            "title": "Name",
             "type": "`$STRING`",
+            "short": "Name of the location or establishment",
           },
           {
             "name": "state",
-            "short": "State or province",
+            "title": "State",
             "type": "`$STRING`",
+            "short": "State or province",
           },
           {
             "name": "street",
-            "short": "Street address",
+            "title": "Street",
             "type": "`$STRING`",
+            "short": "Street address",
           },
           {
             "name": "unisex",
-            "short": "Whether the restroom is unisex/gender-neutral",
+            "title": "Unisex",
             "type": "`$BOOLEAN`",
+            "short": "Whether the restroom is unisex/gender-neutral",
           },
           {
-            "format": "date-time",
             "name": "updated_at",
-            "short": "Timestamp when the restroom was last updated",
+            "title": "Updated At",
             "type": "`$STRING`",
+            "short": "Timestamp when the restroom was last updated",
+            "format": "date-time",
           },
           {
             "name": "upvote",
-            "short": "Number of upvotes",
+            "title": "Upvote",
             "type": "`$INTEGER`",
+            "short": "Number of upvotes",
           },
         ],
         "id": {
@@ -221,50 +239,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "kind": "query",
-                      "name": "ada",
-                      "orig": "ada",
-                      "type": "`$BOOLEAN`",
-                    },
-                    {
-                      "example": 40.7128,
-                      "kind": "query",
-                      "name": "lat",
-                      "orig": "lat",
-                      "type": "`$NUMBER`",
-                    },
-                    {
-                      "example": -74.006,
-                      "kind": "query",
-                      "name": "lng",
-                      "orig": "lng",
-                      "type": "`$NUMBER`",
-                    },
-                    {
-                      "example": 1,
-                      "kind": "query",
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": 10,
-                      "kind": "query",
-                      "name": "per_page",
-                      "orig": "per_page",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "kind": "query",
-                      "name": "unisex",
-                      "orig": "unisex",
-                      "type": "`$BOOLEAN`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/v1/restrooms",
@@ -276,6 +250,59 @@ def make_config():
                     "lit": "restrooms",
                   },
                 ],
+                "parts": [
+                  "v1",
+                  "restrooms",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "ada",
+                      "orig": "ada",
+                      "type": "`$BOOLEAN`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "lat",
+                      "orig": "lat",
+                      "type": "`$NUMBER`",
+                      "kind": "query",
+                      "example": 40.7128,
+                    },
+                    {
+                      "name": "lng",
+                      "orig": "lng",
+                      "type": "`$NUMBER`",
+                      "kind": "query",
+                      "example": -74.006,
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                    {
+                      "name": "per_page",
+                      "orig": "per_page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 10,
+                    },
+                    {
+                      "name": "unisex",
+                      "orig": "unisex",
+                      "type": "`$BOOLEAN`",
+                      "kind": "query",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "ada",
@@ -286,34 +313,8 @@ def make_config():
                     "unisex",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "v1",
-                  "restrooms",
-                ],
               },
               {
-                "args": {
-                  "query": [
-                    {
-                      "kind": "query",
-                      "name": "lat",
-                      "orig": "lat",
-                      "reqd": True,
-                      "type": "`$NUMBER`",
-                    },
-                    {
-                      "kind": "query",
-                      "name": "lng",
-                      "orig": "lng",
-                      "reqd": True,
-                      "type": "`$NUMBER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/v1/restrooms/by_location",
@@ -328,6 +329,34 @@ def make_config():
                     "lit": "by_location",
                   },
                 ],
+                "parts": [
+                  "v1",
+                  "restrooms",
+                  "by_location",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "lat",
+                      "orig": "lat",
+                      "type": "`$NUMBER`",
+                      "kind": "query",
+                      "reqd": True,
+                    },
+                    {
+                      "name": "lng",
+                      "orig": "lng",
+                      "type": "`$NUMBER`",
+                      "kind": "query",
+                      "reqd": True,
+                    },
+                  ],
+                },
                 "select": {
                   "$action": "by_location",
                   "exist": [
@@ -335,29 +364,8 @@ def make_config():
                     "lng",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "v1",
-                  "restrooms",
-                  "by_location",
-                ],
               },
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": "New York, NY",
-                      "kind": "query",
-                      "name": "query",
-                      "orig": "query",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/v1/restrooms/search",
@@ -372,21 +380,34 @@ def make_config():
                     "lit": "search",
                   },
                 ],
+                "parts": [
+                  "v1",
+                  "restrooms",
+                  "search",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "query",
+                      "orig": "query",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": "New York, NY",
+                    },
+                  ],
+                },
                 "select": {
                   "$action": "search",
                   "exist": [
                     "query",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "v1",
-                  "restrooms",
-                  "search",
-                ],
               },
             ],
           },

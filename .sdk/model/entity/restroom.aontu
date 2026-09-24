@@ -1,0 +1,329 @@
+# Entity: restroom
+
+main: kit: entity: restroom: {
+
+  alias: field: {}
+
+  fields: {
+    accessible: {
+      h: "Accessible"
+      n: "accessible"
+      r: false
+      sh: "Whether the restroom is ADA accessible"
+      t: "`$BOOLEAN`"
+    }
+    changing_table: {
+      h: "Changing Table"
+      n: "changing_table"
+      r: false
+      sh: "Whether a changing table is available"
+      t: "`$BOOLEAN`"
+    }
+    city: {
+      h: "City"
+      n: "city"
+      r: false
+      sh: "City name"
+      t: "`$STRING`"
+    }
+    comment: {
+      h: "Comment"
+      n: "comment"
+      r: false
+      sh: "Additional comments or notes"
+      t: "`$STRING`"
+    }
+    country: {
+      h: "Country"
+      n: "country"
+      r: false
+      sh: "Country code"
+      t: "`$STRING`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: false
+      sh: "Timestamp when the restroom was added"
+      t: "`$STRING`"
+    }
+    directions: {
+      h: "Directions"
+      n: "directions"
+      r: false
+      sh: "Directions to find the restroom"
+      t: "`$STRING`"
+    }
+    distance: {
+      fo: "double"
+      h: "Distance"
+      n: "distance"
+      r: false
+      sh: "Distance from search location in miles"
+      t: "`$NUMBER`"
+    }
+    downvote: {
+      h: "Downvote"
+      n: "downvote"
+      r: false
+      sh: "Number of downvotes"
+      t: "`$INTEGER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the restroom"
+      t: "`$INTEGER`"
+    }
+    latitude: {
+      fo: "double"
+      h: "Latitude"
+      n: "latitude"
+      r: false
+      sh: "Latitude coordinate"
+      t: "`$NUMBER`"
+    }
+    longitude: {
+      fo: "double"
+      h: "Longitude"
+      n: "longitude"
+      r: false
+      sh: "Longitude coordinate"
+      t: "`$NUMBER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Name of the location or establishment"
+      t: "`$STRING`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: false
+      sh: "State or province"
+      t: "`$STRING`"
+    }
+    street: {
+      h: "Street"
+      n: "street"
+      r: false
+      sh: "Street address"
+      t: "`$STRING`"
+    }
+    unisex: {
+      h: "Unisex"
+      n: "unisex"
+      r: false
+      sh: "Whether the restroom is unisex/gender-neutral"
+      t: "`$BOOLEAN`"
+    }
+    updated_at: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updated_at"
+      r: false
+      sh: "Timestamp when the restroom was last updated"
+      t: "`$STRING`"
+    }
+    upvote: {
+      h: "Upvote"
+      n: "upvote"
+      r: false
+      sh: "Number of upvotes"
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "restroom"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /v1/restrooms"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "ada"
+                or: "ada"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: 40.7128
+                k: "query"
+                n: "lat"
+                or: "lat"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: -74.006
+                k: "query"
+                n: "lng"
+                or: "lng"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "unisex"
+                or: "unisex"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/restrooms"
+          q: {
+            exist: [
+              "ada"
+              "lat"
+              "lng"
+              "page"
+              "per_page"
+              "unisex"
+            ]
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "restrooms"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /v1/restrooms/by_location"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "lat"
+                or: "lat"
+                r: true
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "lng"
+                or: "lng"
+                r: true
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/restrooms/by_location"
+          q: {
+            "$action": "by_location"
+            exist: [
+              "lat"
+              "lng"
+            ]
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "restrooms"
+            }
+            {
+              lit: "by_location"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /v1/restrooms/search"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "New York, NY"
+                k: "query"
+                n: "query"
+                or: "query"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/restrooms/search"
+          q: {
+            "$action": "search"
+            exist: [
+              "query"
+            ]
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "restrooms"
+            }
+            {
+              lit: "search"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

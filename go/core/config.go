@@ -91,98 +91,116 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "accessible",
-						"short": "Whether the restroom is ADA accessible",
+						"title": "Accessible",
 						"type": "`$BOOLEAN`",
+						"short": "Whether the restroom is ADA accessible",
 					},
 					map[string]any{
 						"name": "changing_table",
-						"short": "Whether a changing table is available",
+						"title": "Changing Table",
 						"type": "`$BOOLEAN`",
+						"short": "Whether a changing table is available",
 					},
 					map[string]any{
 						"name": "city",
-						"short": "City name",
+						"title": "City",
 						"type": "`$STRING`",
+						"short": "City name",
 					},
 					map[string]any{
 						"name": "comment",
-						"short": "Additional comments or notes",
+						"title": "Comment",
 						"type": "`$STRING`",
+						"short": "Additional comments or notes",
 					},
 					map[string]any{
 						"name": "country",
-						"short": "Country code",
+						"title": "Country",
 						"type": "`$STRING`",
+						"short": "Country code",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "created_at",
-						"short": "Timestamp when the restroom was added",
+						"title": "Created At",
 						"type": "`$STRING`",
+						"short": "Timestamp when the restroom was added",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "directions",
-						"short": "Directions to find the restroom",
+						"title": "Directions",
 						"type": "`$STRING`",
+						"short": "Directions to find the restroom",
 					},
 					map[string]any{
-						"format": "double",
 						"name": "distance",
-						"short": "Distance from search location in miles",
+						"title": "Distance",
 						"type": "`$NUMBER`",
+						"short": "Distance from search location in miles",
+						"format": "double",
 					},
 					map[string]any{
 						"name": "downvote",
-						"short": "Number of downvotes",
+						"title": "Downvote",
 						"type": "`$INTEGER`",
+						"short": "Number of downvotes",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the restroom",
+						"title": "Id",
 						"type": "`$INTEGER`",
+						"short": "Unique identifier for the restroom",
 					},
 					map[string]any{
-						"format": "double",
 						"name": "latitude",
-						"short": "Latitude coordinate",
+						"title": "Latitude",
 						"type": "`$NUMBER`",
+						"short": "Latitude coordinate",
+						"format": "double",
 					},
 					map[string]any{
-						"format": "double",
 						"name": "longitude",
-						"short": "Longitude coordinate",
+						"title": "Longitude",
 						"type": "`$NUMBER`",
+						"short": "Longitude coordinate",
+						"format": "double",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Name of the location or establishment",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Name of the location or establishment",
 					},
 					map[string]any{
 						"name": "state",
-						"short": "State or province",
+						"title": "State",
 						"type": "`$STRING`",
+						"short": "State or province",
 					},
 					map[string]any{
 						"name": "street",
-						"short": "Street address",
+						"title": "Street",
 						"type": "`$STRING`",
+						"short": "Street address",
 					},
 					map[string]any{
 						"name": "unisex",
-						"short": "Whether the restroom is unisex/gender-neutral",
+						"title": "Unisex",
 						"type": "`$BOOLEAN`",
+						"short": "Whether the restroom is unisex/gender-neutral",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "updated_at",
-						"short": "Timestamp when the restroom was last updated",
+						"title": "Updated At",
 						"type": "`$STRING`",
+						"short": "Timestamp when the restroom was last updated",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "upvote",
-						"short": "Number of upvotes",
+						"title": "Upvote",
 						"type": "`$INTEGER`",
+						"short": "Number of upvotes",
 					},
 				},
 				"id": map[string]any{
@@ -196,50 +214,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "ada",
-											"orig": "ada",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"example": 40.7128,
-											"kind": "query",
-											"name": "lat",
-											"orig": "lat",
-											"type": "`$NUMBER`",
-										},
-										map[string]any{
-											"example": -74.006,
-											"kind": "query",
-											"name": "lng",
-											"orig": "lng",
-											"type": "`$NUMBER`",
-										},
-										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "page",
-											"orig": "page",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 10,
-											"kind": "query",
-											"name": "per_page",
-											"orig": "per_page",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "unisex",
-											"orig": "unisex",
-											"type": "`$BOOLEAN`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/restrooms",
@@ -249,6 +223,59 @@ func MakeConfig() map[string]any {
 									},
 									map[string]any{
 										"lit": "restrooms",
+									},
+								},
+								"parts": []any{
+									"v1",
+									"restrooms",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "ada",
+											"orig": "ada",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "lat",
+											"orig": "lat",
+											"type": "`$NUMBER`",
+											"kind": "query",
+											"example": 40.7128,
+										},
+										map[string]any{
+											"name": "lng",
+											"orig": "lng",
+											"type": "`$NUMBER`",
+											"kind": "query",
+											"example": -74.006,
+										},
+										map[string]any{
+											"name": "page",
+											"orig": "page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
+										map[string]any{
+											"name": "per_page",
+											"orig": "per_page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 10,
+										},
+										map[string]any{
+											"name": "unisex",
+											"orig": "unisex",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -261,34 +288,8 @@ func MakeConfig() map[string]any {
 										"unisex",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"v1",
-									"restrooms",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "lat",
-											"orig": "lat",
-											"reqd": true,
-											"type": "`$NUMBER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "lng",
-											"orig": "lng",
-											"reqd": true,
-											"type": "`$NUMBER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/restrooms/by_location",
@@ -303,6 +304,34 @@ func MakeConfig() map[string]any {
 										"lit": "by_location",
 									},
 								},
+								"parts": []any{
+									"v1",
+									"restrooms",
+									"by_location",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "lat",
+											"orig": "lat",
+											"type": "`$NUMBER`",
+											"kind": "query",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "lng",
+											"orig": "lng",
+											"type": "`$NUMBER`",
+											"kind": "query",
+											"reqd": true,
+										},
+									},
+								},
 								"select": map[string]any{
 									"$action": "by_location",
 									"exist": []any{
@@ -310,29 +339,8 @@ func MakeConfig() map[string]any {
 										"lng",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"v1",
-									"restrooms",
-									"by_location",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "New York, NY",
-											"kind": "query",
-											"name": "query",
-											"orig": "query",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/v1/restrooms/search",
@@ -347,20 +355,33 @@ func MakeConfig() map[string]any {
 										"lit": "search",
 									},
 								},
+								"parts": []any{
+									"v1",
+									"restrooms",
+									"search",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "query",
+											"orig": "query",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+											"example": "New York, NY",
+										},
+									},
+								},
 								"select": map[string]any{
 									"$action": "search",
 									"exist": []any{
 										"query",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"v1",
-									"restrooms",
-									"search",
 								},
 							},
 						},
