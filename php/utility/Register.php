@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 RefugeRestroomsUtility::setRegistrar(function (RefugeRestroomsUtility $u): void {
     $u->clean = [RefugeRestroomsClean::class, 'call'];
+    $u->clean_add = [RefugeRestroomsClean::class, 'add'];
+    $u->clean_explain = [RefugeRestroomsDone::class, 'clean_explain'];
     $u->done = [RefugeRestroomsDone::class, 'call'];
     $u->make_error = [RefugeRestroomsMakeError::class, 'call'];
     $u->feature_add = [RefugeRestroomsFeatureAdd::class, 'call'];

@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 RefugeRestroomsUtility.registrar = ->(u) {
   u.clean = RefugeRestroomsUtilities::Clean
+  u.clean_add = RefugeRestroomsUtilities::CleanAdd
+  u.clean_explain = RefugeRestroomsUtilities::CleanExplain
   u.done = RefugeRestroomsUtilities::Done
   u.make_error = RefugeRestroomsUtilities::MakeError
   u.feature_add = RefugeRestroomsUtilities::FeatureAdd
