@@ -260,6 +260,114 @@
                 {
                   "a": true,
                   "co": {
+                    "id": "GET /v1/restrooms/by_location",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "lat",
+                        "or": "lat",
+                        "r": true,
+                        "t": "`$NUMBER`"
+                      },
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "lng",
+                        "or": "lng",
+                        "r": true,
+                        "t": "`$NUMBER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/v1/restrooms/by_location",
+                  "q": {
+                    "$action": "by_location",
+                    "exist": [
+                      "lat",
+                      "lng"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "restrooms"
+                    },
+                    {
+                      "lit": "by_location"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /v1/restrooms/search",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": "New York, NY",
+                        "k": "query",
+                        "n": "query",
+                        "or": "query",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/v1/restrooms/search",
+                  "q": {
+                    "$action": "search",
+                    "exist": [
+                      "query"
+                    ]
+                  },
+                  "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
+                  "s": [
+                    {
+                      "lit": "v1"
+                    },
+                    {
+                      "lit": "restrooms"
+                    },
+                    {
+                      "lit": "search"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
                     "id": "GET /v1/restrooms",
                     "source": "openapi3",
                     "version": 2
@@ -323,123 +431,18 @@
                   "k": "http",
                   "m": "GET",
                   "o": "/v1/restrooms",
-                  "q": {
-                    "exist": [
-                      "ada",
-                      "lat",
-                      "lng",
-                      "page",
-                      "per_page",
-                      "unisex"
-                    ]
-                  },
+                  "q": {},
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "v1"
                     },
                     {
                       "lit": "restrooms"
-                    }
-                  ],
-                  "t": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "a": true,
-                  "co": {
-                    "id": "GET /v1/restrooms/by_location",
-                    "source": "openapi3",
-                    "version": 2
-                  },
-                  "g": {
-                    "query": [
-                      {
-                        "a": true,
-                        "k": "query",
-                        "n": "lat",
-                        "or": "lat",
-                        "r": true,
-                        "t": "`$NUMBER`"
-                      },
-                      {
-                        "a": true,
-                        "k": "query",
-                        "n": "lng",
-                        "or": "lng",
-                        "r": true,
-                        "t": "`$NUMBER`"
-                      }
-                    ]
-                  },
-                  "k": "http",
-                  "m": "GET",
-                  "o": "/v1/restrooms/by_location",
-                  "q": {
-                    "$action": "by_location",
-                    "exist": [
-                      "lat",
-                      "lng"
-                    ]
-                  },
-                  "r": {},
-                  "s": [
-                    {
-                      "lit": "v1"
-                    },
-                    {
-                      "lit": "restrooms"
-                    },
-                    {
-                      "lit": "by_location"
-                    }
-                  ],
-                  "t": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "a": true,
-                  "co": {
-                    "id": "GET /v1/restrooms/search",
-                    "source": "openapi3",
-                    "version": 2
-                  },
-                  "g": {
-                    "query": [
-                      {
-                        "a": true,
-                        "ex": "New York, NY",
-                        "k": "query",
-                        "n": "query",
-                        "or": "query",
-                        "r": true,
-                        "t": "`$STRING`"
-                      }
-                    ]
-                  },
-                  "k": "http",
-                  "m": "GET",
-                  "o": "/v1/restrooms/search",
-                  "q": {
-                    "$action": "search",
-                    "exist": [
-                      "query"
-                    ]
-                  },
-                  "r": {},
-                  "s": [
-                    {
-                      "lit": "v1"
-                    },
-                    {
-                      "lit": "restrooms"
-                    },
-                    {
-                      "lit": "search"
                     }
                   ],
                   "t": {
@@ -777,6 +780,7 @@
             },
             "optspec": {
               "clearTimer": "`$FUNCTION`",
+              "now": "`$FUNCTION`",
               "setTimer": "`$FUNCTION`"
             },
             "strict": false
@@ -920,7 +924,7 @@
       "optspec": {
         "allow": {
           "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
-          "op": "create,update,load,list,remove,command,direct,graphql"
+          "op": "create,update,patch,load,list,remove,command,direct,graphql"
         },
         "apikey": "",
         "auth": {
@@ -973,6 +977,11 @@
         "top": {
           "active": true
         }
+      },
+      "publisher": {
+        "name": "",
+        "security": "",
+        "url": ""
       },
       "repo": {
         "host": "github.com",
@@ -1203,7 +1212,10 @@
             "version": "0.0.1"
           },
           "superseded": [],
-          "title": "Go MCP server"
+          "title": "Go MCP server",
+          "tool": {
+            "write": false
+          }
         },
         "lua": {
           "active": true,
@@ -1580,6 +1592,17 @@
           "base": "",
           "strict": true
         }
+      },
+      "text": {
+        "about_md": "",
+        "docs_url": "",
+        "entity_desc": {},
+        "homepage": "",
+        "meta_source": "",
+        "summary": "",
+        "tagline": "",
+        "title": "",
+        "website": ""
       }
     }
   },

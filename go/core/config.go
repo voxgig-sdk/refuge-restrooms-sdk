@@ -71,6 +71,7 @@ func MakeConfig() map[string]any {
 				},
 				"optspec": map[string]any{
 					"clearTimer": "`$FUNCTION`",
+					"now": "`$FUNCTION`",
 					"setTimer": "`$FUNCTION`",
 				},
 				"strict": false,
@@ -216,6 +217,109 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"kind": "http",
 								"method": "GET",
+								"orig": "/v1/restrooms/by_location",
+								"segments": []any{
+									map[string]any{
+										"lit": "v1",
+									},
+									map[string]any{
+										"lit": "restrooms",
+									},
+									map[string]any{
+										"lit": "by_location",
+									},
+								},
+								"parts": []any{
+									"v1",
+									"restrooms",
+									"by_location",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "lat",
+											"orig": "lat",
+											"type": "`$NUMBER`",
+											"kind": "query",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "lng",
+											"orig": "lng",
+											"type": "`$NUMBER`",
+											"kind": "query",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"$action": "by_location",
+									"exist": []any{
+										"lat",
+										"lng",
+									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/v1/restrooms/search",
+								"segments": []any{
+									map[string]any{
+										"lit": "v1",
+									},
+									map[string]any{
+										"lit": "restrooms",
+									},
+									map[string]any{
+										"lit": "search",
+									},
+								},
+								"parts": []any{
+									"v1",
+									"restrooms",
+									"search",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "query",
+											"orig": "query",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+											"example": "New York, NY",
+										},
+									},
+								},
+								"select": map[string]any{
+									"$action": "search",
+									"exist": []any{
+										"query",
+									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
 								"orig": "/v1/restrooms",
 								"segments": []any{
 									map[string]any{
@@ -275,113 +379,14 @@ func MakeConfig() map[string]any {
 											"orig": "unisex",
 											"type": "`$BOOLEAN`",
 											"kind": "query",
+											"field": true,
 										},
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"ada",
-										"lat",
-										"lng",
-										"page",
-										"per_page",
-										"unisex",
-									},
-								},
-							},
-							map[string]any{
-								"kind": "http",
-								"method": "GET",
-								"orig": "/v1/restrooms/by_location",
-								"segments": []any{
-									map[string]any{
-										"lit": "v1",
-									},
-									map[string]any{
-										"lit": "restrooms",
-									},
-									map[string]any{
-										"lit": "by_location",
-									},
-								},
-								"parts": []any{
-									"v1",
-									"restrooms",
-									"by_location",
-								},
-								"rename": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"name": "lat",
-											"orig": "lat",
-											"type": "`$NUMBER`",
-											"kind": "query",
-											"reqd": true,
-										},
-										map[string]any{
-											"name": "lng",
-											"orig": "lng",
-											"type": "`$NUMBER`",
-											"kind": "query",
-											"reqd": true,
-										},
-									},
-								},
-								"select": map[string]any{
-									"$action": "by_location",
-									"exist": []any{
-										"lat",
-										"lng",
-									},
-								},
-							},
-							map[string]any{
-								"kind": "http",
-								"method": "GET",
-								"orig": "/v1/restrooms/search",
-								"segments": []any{
-									map[string]any{
-										"lit": "v1",
-									},
-									map[string]any{
-										"lit": "restrooms",
-									},
-									map[string]any{
-										"lit": "search",
-									},
-								},
-								"parts": []any{
-									"v1",
-									"restrooms",
-									"search",
-								},
-								"rename": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"name": "query",
-											"orig": "query",
-											"type": "`$STRING`",
-											"kind": "query",
-											"reqd": true,
-											"example": "New York, NY",
-										},
-									},
-								},
-								"select": map[string]any{
-									"$action": "search",
-									"exist": []any{
-										"query",
-									},
+								"select": map[string]any{},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},

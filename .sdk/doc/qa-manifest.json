@@ -3,5 +3,19 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Additional comments or notes",
+      "City name",
+      "Country code",
+      "List of nearby restrooms",
+      "List of restrooms matching the search",
+      "Production server",
+      "Provides access to gender-neutral restroom locations and information. Users can search for restrooms by address or current location.",
+      "Successful response with list of restrooms",
+      "Whether a changing table is available",
+      "Whether the restroom is ADA accessible"
+    ]
+  }
 }

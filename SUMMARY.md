@@ -14,7 +14,7 @@ An entity groups related API operations. An operation can have several routes wi
 
 ### Restroom
 
-Results: Successful response with list of restrooms; List of nearby restrooms; List of restrooms matching the search.
+Results: List of nearby restrooms; List of restrooms matching the search; Successful response with list of restrooms.
 
 SDK operations: `list`.
 
@@ -32,9 +32,9 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 
 | Entity | SDK operation | HTTP route | Authentication |
 | --- | --- | --- | --- |
-| Restroom | `list` | `GET /v1/restrooms` | See reference |
 | Restroom | `list` | `GET /v1/restrooms/by_location` | See reference |
 | Restroom | `list` | `GET /v1/restrooms/search` | See reference |
+| Restroom | `list` | `GET /v1/restrooms` | See reference |
 
 ## Connect to the API
 

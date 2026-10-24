@@ -150,6 +150,105 @@ main: kit: entity: restroom: {
       points: [
         {
           co: {
+            id: "GET /v1/restrooms/by_location"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "lat"
+                or: "lat"
+                r: true
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "lng"
+                or: "lng"
+                r: true
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/restrooms/by_location"
+          q: {
+            "$action": "by_location"
+            exist: [
+              "lat"
+              "lng"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "restrooms"
+            }
+            {
+              lit: "by_location"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /v1/restrooms/search"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "New York, NY"
+                k: "query"
+                n: "query"
+                or: "query"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/restrooms/search"
+          q: {
+            "$action": "search"
+            exist: [
+              "query"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "restrooms"
+            }
+            {
+              lit: "search"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
             id: "GET /v1/restrooms"
             source: "openapi3"
             version: 2
@@ -206,15 +305,9 @@ main: kit: entity: restroom: {
           }
           m: "GET"
           o: "/v1/restrooms"
-          q: {
-            exist: [
-              "ada"
-              "lat"
-              "lng"
-              "page"
-              "per_page"
-              "unisex"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
@@ -222,97 +315,6 @@ main: kit: entity: restroom: {
             }
             {
               lit: "restrooms"
-            }
-          ]
-          t: {
-            req: "`reqdata`"
-            res: "`body`"
-          }
-        }
-        {
-          co: {
-            id: "GET /v1/restrooms/by_location"
-            source: "openapi3"
-            version: 2
-          }
-          g: {
-            query: [
-              {
-                k: "query"
-                n: "lat"
-                or: "lat"
-                r: true
-                t: "`$NUMBER`"
-              }
-              {
-                k: "query"
-                n: "lng"
-                or: "lng"
-                r: true
-                t: "`$NUMBER`"
-              }
-            ]
-          }
-          m: "GET"
-          o: "/v1/restrooms/by_location"
-          q: {
-            "$action": "by_location"
-            exist: [
-              "lat"
-              "lng"
-            ]
-          }
-          s: [
-            {
-              lit: "v1"
-            }
-            {
-              lit: "restrooms"
-            }
-            {
-              lit: "by_location"
-            }
-          ]
-          t: {
-            req: "`reqdata`"
-            res: "`body`"
-          }
-        }
-        {
-          co: {
-            id: "GET /v1/restrooms/search"
-            source: "openapi3"
-            version: 2
-          }
-          g: {
-            query: [
-              {
-                ex: "New York, NY"
-                k: "query"
-                n: "query"
-                or: "query"
-                r: true
-                t: "`$STRING`"
-              }
-            ]
-          }
-          m: "GET"
-          o: "/v1/restrooms/search"
-          q: {
-            "$action": "search"
-            exist: [
-              "query"
-            ]
-          }
-          s: [
-            {
-              lit: "v1"
-            }
-            {
-              lit: "restrooms"
-            }
-            {
-              lit: "search"
             }
           ]
           t: {

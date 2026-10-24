@@ -96,6 +96,7 @@ def make_config():
         },
         "optspec": {
           "clearTimer": "`$FUNCTION`",
+          "now": "`$FUNCTION`",
           "setTimer": "`$FUNCTION`",
         },
         "strict": False,
@@ -241,6 +242,109 @@ def make_config():
               {
                 "kind": "http",
                 "method": "GET",
+                "orig": "/v1/restrooms/by_location",
+                "segments": [
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "restrooms",
+                  },
+                  {
+                    "lit": "by_location",
+                  },
+                ],
+                "parts": [
+                  "v1",
+                  "restrooms",
+                  "by_location",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "lat",
+                      "orig": "lat",
+                      "type": "`$NUMBER`",
+                      "kind": "query",
+                      "reqd": True,
+                    },
+                    {
+                      "name": "lng",
+                      "orig": "lng",
+                      "type": "`$NUMBER`",
+                      "kind": "query",
+                      "reqd": True,
+                    },
+                  ],
+                },
+                "select": {
+                  "$action": "by_location",
+                  "exist": [
+                    "lat",
+                    "lng",
+                  ],
+                },
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
+                },
+              },
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/v1/restrooms/search",
+                "segments": [
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "restrooms",
+                  },
+                  {
+                    "lit": "search",
+                  },
+                ],
+                "parts": [
+                  "v1",
+                  "restrooms",
+                  "search",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "query",
+                      "orig": "query",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": "New York, NY",
+                    },
+                  ],
+                },
+                "select": {
+                  "$action": "search",
+                  "exist": [
+                    "query",
+                  ],
+                },
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
+                },
+              },
+              {
+                "kind": "http",
+                "method": "GET",
                 "orig": "/v1/restrooms",
                 "segments": [
                   {
@@ -300,113 +404,14 @@ def make_config():
                       "orig": "unisex",
                       "type": "`$BOOLEAN`",
                       "kind": "query",
+                      "field": True,
                     },
                   ],
                 },
-                "select": {
-                  "exist": [
-                    "ada",
-                    "lat",
-                    "lng",
-                    "page",
-                    "per_page",
-                    "unisex",
-                  ],
-                },
-              },
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/v1/restrooms/by_location",
-                "segments": [
-                  {
-                    "lit": "v1",
-                  },
-                  {
-                    "lit": "restrooms",
-                  },
-                  {
-                    "lit": "by_location",
-                  },
-                ],
-                "parts": [
-                  "v1",
-                  "restrooms",
-                  "by_location",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "lat",
-                      "orig": "lat",
-                      "type": "`$NUMBER`",
-                      "kind": "query",
-                      "reqd": True,
-                    },
-                    {
-                      "name": "lng",
-                      "orig": "lng",
-                      "type": "`$NUMBER`",
-                      "kind": "query",
-                      "reqd": True,
-                    },
-                  ],
-                },
-                "select": {
-                  "$action": "by_location",
-                  "exist": [
-                    "lat",
-                    "lng",
-                  ],
-                },
-              },
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/v1/restrooms/search",
-                "segments": [
-                  {
-                    "lit": "v1",
-                  },
-                  {
-                    "lit": "restrooms",
-                  },
-                  {
-                    "lit": "search",
-                  },
-                ],
-                "parts": [
-                  "v1",
-                  "restrooms",
-                  "search",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "query",
-                      "orig": "query",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                      "reqd": True,
-                      "example": "New York, NY",
-                    },
-                  ],
-                },
-                "select": {
-                  "$action": "search",
-                  "exist": [
-                    "query",
-                  ],
+                "select": {},
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
                 },
               },
             ],

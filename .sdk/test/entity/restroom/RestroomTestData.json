@@ -87,17 +87,17 @@
     }
   },
   "requests": {
-    "GET /v1/restrooms": {
-      "provenance": "operation-contract",
-      "version": 2,
-      "source": "openapi3"
-    },
     "GET /v1/restrooms/by_location": {
       "provenance": "operation-contract",
       "version": 2,
       "source": "openapi3"
     },
     "GET /v1/restrooms/search": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/restrooms": {
       "provenance": "operation-contract",
       "version": 2,
       "source": "openapi3"

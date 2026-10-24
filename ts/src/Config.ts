@@ -102,6 +102,7 @@ class Config {
       },
       "optspec": {
         "clearTimer": "`$FUNCTION`",
+        "now": "`$FUNCTION`",
         "setTimer": "`$FUNCTION`"
       },
       "strict": false,
@@ -257,6 +258,109 @@ class Config {
             {
               "kind": "http",
               "method": "GET",
+              "orig": "/v1/restrooms/by_location",
+              "segments": [
+                {
+                  "lit": "v1"
+                },
+                {
+                  "lit": "restrooms"
+                },
+                {
+                  "lit": "by_location"
+                }
+              ],
+              "parts": [
+                "v1",
+                "restrooms",
+                "by_location"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "lat",
+                    "orig": "lat",
+                    "type": "`$NUMBER`",
+                    "kind": "query",
+                    "reqd": true
+                  },
+                  {
+                    "name": "lng",
+                    "orig": "lng",
+                    "type": "`$NUMBER`",
+                    "kind": "query",
+                    "reqd": true
+                  }
+                ]
+              },
+              "select": {
+                "$action": "by_location",
+                "exist": [
+                  "lat",
+                  "lng"
+                ]
+              },
+              "response": {
+                "kind": "json",
+                "media": "application/json"
+              }
+            },
+            {
+              "kind": "http",
+              "method": "GET",
+              "orig": "/v1/restrooms/search",
+              "segments": [
+                {
+                  "lit": "v1"
+                },
+                {
+                  "lit": "restrooms"
+                },
+                {
+                  "lit": "search"
+                }
+              ],
+              "parts": [
+                "v1",
+                "restrooms",
+                "search"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "query",
+                    "orig": "query",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "reqd": true,
+                    "example": "New York, NY"
+                  }
+                ]
+              },
+              "select": {
+                "$action": "search",
+                "exist": [
+                  "query"
+                ]
+              },
+              "response": {
+                "kind": "json",
+                "media": "application/json"
+              }
+            },
+            {
+              "kind": "http",
+              "method": "GET",
               "orig": "/v1/restrooms",
               "segments": [
                 {
@@ -315,114 +419,15 @@ class Config {
                     "name": "unisex",
                     "orig": "unisex",
                     "type": "`$BOOLEAN`",
-                    "kind": "query"
+                    "kind": "query",
+                    "field": true
                   }
                 ]
               },
-              "select": {
-                "exist": [
-                  "ada",
-                  "lat",
-                  "lng",
-                  "page",
-                  "per_page",
-                  "unisex"
-                ]
-              }
-            },
-            {
-              "kind": "http",
-              "method": "GET",
-              "orig": "/v1/restrooms/by_location",
-              "segments": [
-                {
-                  "lit": "v1"
-                },
-                {
-                  "lit": "restrooms"
-                },
-                {
-                  "lit": "by_location"
-                }
-              ],
-              "parts": [
-                "v1",
-                "restrooms",
-                "by_location"
-              ],
-              "rename": {},
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "args": {
-                "query": [
-                  {
-                    "name": "lat",
-                    "orig": "lat",
-                    "type": "`$NUMBER`",
-                    "kind": "query",
-                    "reqd": true
-                  },
-                  {
-                    "name": "lng",
-                    "orig": "lng",
-                    "type": "`$NUMBER`",
-                    "kind": "query",
-                    "reqd": true
-                  }
-                ]
-              },
-              "select": {
-                "$action": "by_location",
-                "exist": [
-                  "lat",
-                  "lng"
-                ]
-              }
-            },
-            {
-              "kind": "http",
-              "method": "GET",
-              "orig": "/v1/restrooms/search",
-              "segments": [
-                {
-                  "lit": "v1"
-                },
-                {
-                  "lit": "restrooms"
-                },
-                {
-                  "lit": "search"
-                }
-              ],
-              "parts": [
-                "v1",
-                "restrooms",
-                "search"
-              ],
-              "rename": {},
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "args": {
-                "query": [
-                  {
-                    "name": "query",
-                    "orig": "query",
-                    "type": "`$STRING`",
-                    "kind": "query",
-                    "reqd": true,
-                    "example": "New York, NY"
-                  }
-                ]
-              },
-              "select": {
-                "$action": "search",
-                "exist": [
-                  "query"
-                ]
+              "select": {},
+              "response": {
+                "kind": "json",
+                "media": "application/json"
               }
             }
           ]
